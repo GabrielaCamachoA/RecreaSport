@@ -38,7 +38,7 @@
   position: absolute;
   top: 1rem;
   right: -15px; /* sobresale hacia el main */
-  background: #2563eb;
+  background: #0d883c;
   border: none;
   color: white;
   padding: 10px 14px;
@@ -51,7 +51,7 @@
 }
 
 .toggle-btn:hover {
-  background: #1d4ed8;
+  background: #074e23;
 }
 
 /* Perfil */

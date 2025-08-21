@@ -1,1 +1,17 @@
 
+.export-data{
+    background-color: rgb(20, 170, 20);
+}
+
+.sub-navbar{
+    background-color: rgb(212, 211, 211);
+}
+.sub-navbar-link{
+    color: black;
+    border-radius: 20px;
+}
+.sub-navbar-link:hover{
+    background-color: white;
+    color: black;
+    height: 90%;
+}

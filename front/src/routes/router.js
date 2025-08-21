@@ -12,8 +12,8 @@ import {
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
-  "/": { view: Home},
-  "/Admin": { view: Admin},
+  "/": { view: Home, guarded: validateGuardedPath("/"), roles: [] },
+  "/Admin": { view: Admin, guarded: validateGuardedPath("/about"), roles: [] },
 };
 
 export function router() {

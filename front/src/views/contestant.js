@@ -1,3 +1,4 @@
 export default function Contestant() {
-  return `<h1 class="h1">Contestant</h1>`;
+  return `<h1 class="h1">Mi Panel</h1>`
+  ;
 }

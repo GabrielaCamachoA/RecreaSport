@@ -18,3 +18,5 @@ export function router() {
 
   document.getElementById("app").innerHTML = route.view();
 }
+
+

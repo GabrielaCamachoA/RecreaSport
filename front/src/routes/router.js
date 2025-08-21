@@ -3,6 +3,7 @@ import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
 import AccessDenied from "../views/accessDenied.js";
+import Trainer from "../views/trainer.js";
 import {
   isAutenticated,
   updateAuthButtons,
@@ -14,6 +15,7 @@ import {
 const routes = {
   "/": { view: Home, guarded: validateGuardedPath("/"), roles: [] },
   "/Admin": { view: Admin, guarded: validateGuardedPath("/about"), roles: [] },
+  "/Trainer": { view: Trainer}
 };
 
 export function router() {

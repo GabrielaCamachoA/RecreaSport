@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#panel-trainer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.cube-opt{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.cube{
+    list-style: none;
+    display: flex;
+    width: 60%;
+    height: 60%;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cube li{
+    background-color: white;
+    width: 20%;
+    max-width: 230px;
+    min-width: 90px;
+    height: 60%;
+    border: 1px solid rgba(148, 145, 145, 0.288);
+    border-radius: 10px;
+}
+
+.opt{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    background-color: rgb(235, 231, 231) ;
+    width: 30%;
+    padding: 5px;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.opt li{
+}
+
+.opt :nth-child(1){
+    background-color: white;
+    border-radius: 15px;
+}

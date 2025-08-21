@@ -2,14 +2,15 @@
 import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
-import Contestant from "../views/contestant.js"; 
+import Contestant from "../views/contestant.js";
 import AccessDenied from "../views/accessDenied.js";
+import setupAdmin from "../views/scripts/adminScript.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
   "/": { view: Home },
-  "/Admin": { view: Admin },
-  "/Contestant" : { view: Contestant },
+  "/Admin": { view: Admin, script: setupAdmin },
+  "/Contestant": { view: Contestant },
 };
 
 export function router() {
@@ -17,6 +18,8 @@ export function router() {
   const route = routes[path] || { view: NotFound, guarded: false, roles: [] };
 
   document.getElementById("app").innerHTML = route.view();
+
+  if (route.script) {
+    route.script();
+  }
 }
-
-

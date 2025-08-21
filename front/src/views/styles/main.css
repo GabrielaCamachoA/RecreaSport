@@ -180,6 +180,11 @@
   padding: 0.5rem 1rem;
 }
 
+.header .logo img {
+  height: 70px;
+  margin-bottom: 0.5rem;
+}
+
 .header a.nav-link {
   color: #000;
   font-weight: 500;

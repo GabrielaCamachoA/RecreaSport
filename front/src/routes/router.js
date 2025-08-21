@@ -3,17 +3,11 @@ import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
 import AccessDenied from "../views/accessDenied.js";
-import {
-  isAutenticated,
-  updateAuthButtons,
-  validateGuardedPath,
-  getUserRole,
-} from "../js/auth.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
-  "/": { view: Home, guarded: validateGuardedPath("/"), roles: [] },
-  "/Admin": { view: Admin, guarded: validateGuardedPath("/about"), roles: [] },
+  "/": { view: Home },
+  "/Admin": { view: Admin },
 };
 
 export function router() {

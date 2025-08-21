@@ -46,15 +46,15 @@ export default function Admin() {
         <div class="w-50 mb-3 ">
             <div class="col-12">
                 <div >
-                    <ul class="border sub-navbar rounded-pill nav p-1 gap-1 ">
+                    <ul class="border sub-navbar rounded-pill nav p-1 gap-1 " id="admin-sub-nav">
                         <li class="nav-item">
-                            <a class="mt-1 nav-link sub-navbar-link" href="#">Inscripciones</a>
+                            <a class="mt-1 nav-link sub-navbar-link" data-view="inscriptions" href="#">Inscripciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="mt-1 mb-1 nav-link sub-navbar-link" href="#">Reportes avanzados</a>
+                            <a class="mt-1 mb-1 nav-link sub-navbar-link" data-view="reports" href="#">Reportes avanzados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="mt-1 mb-1 nav-link sub-navbar-link" href="#">Users</a>
+                            <a class="mt-1 mb-1 nav-link sub-navbar-link" data-view="users" href="#">Users</a>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +63,7 @@ export default function Admin() {
         
         <div class="row">
             <div class="col-12">
-                <div class="p-4 border rounded">
+                <div class="p-4 border rounded" id="admin-content-area">
                     <p>Contenido principal del panel de administración (tablas, formularios, etc.).</p>
                 </div>
             </div>

@@ -2,8 +2,6 @@
 #00A22F    green
 #FFFFFF    white */
 
-
-
 /* ============================
    CONTENEDOR PRINCIPAL
    ============================ */
@@ -16,7 +14,7 @@
 
 /* Estado colapsado */
 .general-container.collapsed {
-  grid-template-columns: 60px 1fr; /* aside reducido */
+  grid-template-columns: 30px 1fr; /* aside reducido */
 }
 
 /* ============================
@@ -24,7 +22,7 @@
    ============================ */
 #sidebar {
   height: 100vh;
-  background: #1e293b; /* azul oscuro elegante */
+  background: #1e293bd3; /* azul oscuro elegante */
   color: white;
   padding: 1rem;
   position: relative;

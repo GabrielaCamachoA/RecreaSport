@@ -6,8 +6,8 @@ import AccessDenied from "../views/accessDenied.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
-  "/": { view: Home },
-  "/Admin": { view: Admin },
+  "/": { view: Home},
+  "/Admin": { view: Admin},
 };
 
 export function router() {

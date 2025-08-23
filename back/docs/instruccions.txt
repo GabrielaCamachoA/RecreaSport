@@ -1,0 +1,9 @@
+query to insert in tables trainers and contestant 
+
+id_rol admin 1, trainers 2, contestant 3.
+
+INSERT INTO trainers (id_user)
+SELECT id_user
+FROM users
+WHERE id_user = LAST_INSERT_ID()
+  AND id_rol = 2;

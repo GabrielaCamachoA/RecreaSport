@@ -38,6 +38,23 @@ export default function setupAdmin() {
     });
   }
 
+  // ✅ Función para cargar usuarios
+  async function loadUsersData() {
+    try {
+      console.log("Cargando datos de usuarios...");
+      const response = await fetch("http://localhost:5000/users");
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Usuarios cargados:", data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  }
+
   // default load iscripitons view
   loadSubView("inscriptions");
+  loadUsersData();
 }

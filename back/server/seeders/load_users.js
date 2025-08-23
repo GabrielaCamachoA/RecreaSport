@@ -1,9 +1,7 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
 import csv from "csv-parser";
-import models from "../conexion/models/index.js";
-
-const { User } = models;
+import { Users } from "../models/index.js";
 
 export async function loadUsersToDataBase() {
   const pathFile = path.resolve("server/data/Users.csv");
@@ -28,7 +26,7 @@ export async function loadUsersToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await User.bulkCreate(users, {
+          const result = await Users.bulkCreate(users, {
             validate: true,
             ignoreDuplicates: true,
           });

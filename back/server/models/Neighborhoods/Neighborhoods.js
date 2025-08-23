@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
-import Districts from "./Districts.js"; // Importa el modelo relacionado
+import { sequelize } from "../../conexion/conexion.js";
 
 const Neighborhoods = sequelize.define(
   "Neighborhoods",

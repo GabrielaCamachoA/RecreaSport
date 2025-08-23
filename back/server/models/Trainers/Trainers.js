@@ -1,6 +1,6 @@
 // server/models/Trainers.js
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
 const Trainers = sequelize.define(
   "Trainers",

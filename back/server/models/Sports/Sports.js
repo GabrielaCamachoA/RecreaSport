@@ -1,9 +1,7 @@
 // server/models/Sports.js
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
-import Trainers from "./Trainers.js";
-import Venues from "./Venues.js";
-import Schedules from "./Schedules.js";
+import { sequelize } from "../../conexion/conexion.js";
+
 
 const Sports = sequelize.define(
   "Sports",
@@ -24,15 +22,5 @@ const Sports = sequelize.define(
     timestamps: false,
   }
 );
-
-// Relaciones
-Sports.belongsTo(Trainers, { foreignKey: "id_trainer" });
-Sports.belongsTo(Venues, { foreignKey: "id_venue" });
-Sports.belongsTo(Schedules, { foreignKey: "id_schedule" });
-
-// Relaciones inversas (opcional, pero recomendado para consultas bidireccionales)
-Trainers.hasMany(Sports, { foreignKey: "id_trainer" });
-Venues.hasMany(Sports, { foreignKey: "id_venue" });
-Schedules.hasMany(Sports, { foreignKey: "id_schedule" });
 
 export default Sports;

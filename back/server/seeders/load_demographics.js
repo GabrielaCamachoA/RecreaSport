@@ -1,9 +1,7 @@
 import fs from "fs";
 import path from "path";
 import csv from "csv-parser";
-import models from "../conexion/models/index.js";
-
-const { Demographic } = models;
+import { Demographics } from "../models/index.js";
 
 export async function loadDemographicsToDataBase() {
   // 🟢 Usa path.join para construir una ruta segura y absoluta
@@ -27,7 +25,7 @@ export async function loadDemographicsToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await Demographic.bulkCreate(demographics, {
+          const result = await Demographics.bulkCreate(demographics, {
             validate: true,
             ignoreDuplicates: true,
           });

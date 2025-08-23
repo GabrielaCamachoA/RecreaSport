@@ -1,18 +1,17 @@
-// models/Gender.js
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
-const Gender = sequelize.define(
-  "Gender",
+const DocumentTypes = sequelize.define(
+  "DocumentTypes",
   {
-    id_gender: {
+    id_document_type: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING(50),
-      allowNull: true,
+      allowNull: true, // según MySQL es nullable
     },
     codename: {
       type: DataTypes.STRING(5),
@@ -21,9 +20,9 @@ const Gender = sequelize.define(
     },
   },
   {
-    tableName: "Genders",
+    tableName: "Document_types",
     timestamps: false,
   }
 );
 
-export default Gender;
+export default DocumentTypes;

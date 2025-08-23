@@ -1,6 +1,6 @@
 // server/models/Contestants.js
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
 const Contestants = sequelize.define(
   "Contestants",

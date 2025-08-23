@@ -1,0 +1,11 @@
+# Ignorar dependencias de Node
+/node_modules
+
+# Ignorar archivos de entorno
+.env
+
+# Ignorar archivos temporales y de bloqueo
+package-lock.json
+
+# Ignorar la carpeta de datos, ya que estos datos se cargan desde los seeders
+/server/data

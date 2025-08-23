@@ -1,0 +1,29 @@
+// models/Demographic.js
+import { DataTypes } from "sequelize";
+import { sequelize } from "../conexionDB.js";
+
+const Demographic = sequelize.define(
+  "Demographic",
+  {
+    id_demographic: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    codename: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+      unique: true,
+    },
+  },
+  {
+    tableName: "Demographics",
+    timestamps: false,
+  }
+);
+
+export default Demographic;

@@ -36,6 +36,9 @@ Aquí se registra el progreso del desarrollo y la estructura del proyecto.
 
 - Node.js
 - MySQL
+- Express
+- mysql2
+- sequelize -> ORM
 - [**Agrega más tecnologías según las vayas usando**]
 
 ---

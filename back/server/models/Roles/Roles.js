@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
-const Demographic = sequelize.define(
-  "Demographic",
+const Roles = sequelize.define(
+  "Roles",
   {
-    id_demographic: {
+    id_rol: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(45),
       allowNull: false,
     },
     codename: {
@@ -20,9 +20,9 @@ const Demographic = sequelize.define(
     },
   },
   {
-    tableName: "Demographics",
+    tableName: "Roles",
     timestamps: false,
   }
 );
 
-export default Demographic;
+export default Roles;

@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
-const User = sequelize.define(
-  "User",
+const Users = sequelize.define(
+  "Users",
   {
     id_user: {
       type: DataTypes.INTEGER,
@@ -25,4 +25,4 @@ const User = sequelize.define(
   }
 );
 
-export default User;
+export default Users;

@@ -1,6 +1,6 @@
 // server/models/Schedules.js
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexion.js";
+import { sequelize } from "../../conexion/conexion.js";
 
 const Schedules = sequelize.define(
   "Schedules",

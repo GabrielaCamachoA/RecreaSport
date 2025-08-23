@@ -16,7 +16,8 @@ import { loadUsersToDataBase } from "./load_users.js";
 
     console.log("OK-> Todos los Sedeers ejecutados correctamente.");
   } catch (error) {
-    console.error("Error ejecutando los Sedeers...");
+    // Imprime el error completo para ver el problema específico
+    console.error("Error ejecutando los Sedeers...", error);
   } finally {
     process.exit();
   }

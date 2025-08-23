@@ -1,12 +1,14 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
+import { fileURLToPath } from "url";
 import csv from "csv-parser";
-import models from "../conexion/models/index.js";
+import { Genders } from "../models/index.js";
 
-const { Gender } = models;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export async function loadGendersToDataBase() {
-  const pathFile = path.resolve("server/data/Genders.csv");
+  const pathFile = path.resolve(__dirname, "../data/Genders.csv");
   const genders = [];
 
   return new Promise((resolve, reject) => {
@@ -21,7 +23,7 @@ export async function loadGendersToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await Gender.bulkCreate(genders, {
+          const result = await Genders.bulkCreate(genders, {
             validate: true,
             ignoreDuplicates: true,
           });

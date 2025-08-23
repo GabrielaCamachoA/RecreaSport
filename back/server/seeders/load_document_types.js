@@ -1,9 +1,7 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
 import csv from "csv-parser";
-import models from "../conexion/models/index.js";
-
-const { DocumentType } = models;
+import { DocumentTypes } from "../models/index.js";
 
 export async function loadDocumentTypesToDataBase() {
   const pathFile = path.resolve("server/data/Document_types.csv");
@@ -21,7 +19,7 @@ export async function loadDocumentTypesToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await DocumentType.bulkCreate(documentTypes, {
+          const result = await DocumentTypes.bulkCreate(documentTypes, {
             validate: true,
             ignoreDuplicates: true,
           });

@@ -1,7 +1,9 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
 import csv from "csv-parser";
-import User from "../conexion/models/User.js";
+import models from "../conexion/models/index.js";
+
+const { User } = models;
 
 export async function loadUsersToDataBase() {
   const pathFile = path.resolve("server/data/Users.csv");

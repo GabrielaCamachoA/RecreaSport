@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexionDB.js";
+import { sequelize } from "../conexion.js";
 
 const DocumentType = sequelize.define(
   "DocumentType",

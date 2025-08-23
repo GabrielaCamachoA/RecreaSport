@@ -1,9 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../conexionDB.js";
-import DocumentType from "./Document_types.js";
-import Gender from "./Genders.js";
-import Demographic from "./Demographics.js";
-import Role from "./Roles.js";
+import { sequelize } from "../conexion.js";
 
 const User = sequelize.define(
   "User",
@@ -28,11 +24,5 @@ const User = sequelize.define(
     timestamps: false,
   }
 );
-
-// Relaciones (foreign keys)
-User.belongsTo(DocumentType, { foreignKey: "id_document_type" });
-User.belongsTo(Gender, { foreignKey: "id_gender" });
-User.belongsTo(Demographic, { foreignKey: "id_demographic" });
-User.belongsTo(Role, { foreignKey: "id_rol" });
 
 export default User;

@@ -1,7 +1,9 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
 import csv from "csv-parser";
-import Roles from "../conexion/models/Roles.js";
+import models from "../conexion/models/index.js";
+
+const { Role } = models;
 
 export async function loadRolesToDataBase() {
   const pathFile = path.resolve("server/data/Roles.csv");
@@ -19,7 +21,7 @@ export async function loadRolesToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await Roles.bulkCreate(roles, {
+          const result = await Role.bulkCreate(roles, {
             validate: true,
             ignoreDuplicates: true,
           });

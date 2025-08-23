@@ -1,7 +1,9 @@
 import fs from "fs"; //permite leer archivos
 import path from "path"; //muestra la ruta actual
 import csv from "csv-parser";
-import DocumentType from "../conexion/models/Document_types.js";
+import models from "../conexion/models/index.js";
+
+const { DocumentType } = models;
 
 export async function loadDocumentTypesToDataBase() {
   const pathFile = path.resolve("server/data/Document_types.csv");

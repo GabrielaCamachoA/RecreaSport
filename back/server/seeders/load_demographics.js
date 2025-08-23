@@ -1,10 +1,18 @@
-import fs from "fs"; //permite leer archivos
-import path from "path"; //muestra la ruta actual
+import fs from "fs";
+import path from "path";
 import csv from "csv-parser";
-import Demograpics from "../conexion/models/Demographics.js";
+import models from "../conexion/models/index.js";
+
+const { Demographic } = models;
 
 export async function loadDemographicsToDataBase() {
-  const pathFile = path.resolve("server/data/Demographics.csv");
+  // 🟢 Usa path.join para construir una ruta segura y absoluta
+  const pathFile = path.join(
+    process.cwd(),
+    "server",
+    "data",
+    "Demographics.csv"
+  );
   const demographics = [];
 
   return new Promise((resolve, reject) => {
@@ -19,7 +27,7 @@ export async function loadDemographicsToDataBase() {
       })
       .on("end", async () => {
         try {
-          const result = await Demograpics.bulkCreate(demographics, {
+          const result = await Demographic.bulkCreate(demographics, {
             validate: true,
             ignoreDuplicates: true,
           });

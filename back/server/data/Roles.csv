@@ -1,0 +1,4 @@
+id_rol,name,codename
+1,Admin,ADMIN
+2,Trainer,TRA
+3,Contestant,CONT

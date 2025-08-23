@@ -2,13 +2,8 @@
 import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
-<<<<<<< ours
 import Contestant from "../views/contestant.js";
-=======
-import Trainer from "../views/trainer.js";
->>>>>>> theirs
 import AccessDenied from "../views/accessDenied.js";
-<<<<<<< HEAD
 import setupAdmin from "../views/scripts/adminScript.js";
 
 // definicion de rutas disponibles en la aplicacion
@@ -16,21 +11,6 @@ const routes = {
   "/": { view: Home },
   "/Admin": { view: Admin, script: setupAdmin },
   "/Contestant": { view: Contestant },
-=======
-import Trainer from "../views/trainer.js";
-import {
-  isAutenticated,
-  updateAuthButtons,
-  validateGuardedPath,
-  getUserRole,
-} from "../js/auth.js";
-
-// definicion de rutas disponibles en la aplicacion
-const routes = {
-  "/": { view: Home, guarded: validateGuardedPath("/"), roles: [] },
-  "/Admin": { view: Admin, guarded: validateGuardedPath("/about"), roles: [] },
-  "/Trainer": { view: Trainer}
->>>>>>> b70873b (I added the coach panel and started styling it, lacking functionality)
 };
 
 export function router() {

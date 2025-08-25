@@ -5,12 +5,15 @@ import Home from "../views/home.js";
 import Contestant from "../views/contestant.js";
 import AccessDenied from "../views/accessDenied.js";
 import setupAdmin from "../views/scripts/adminScript.js";
+import login from "../views/login.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
   "/": { view: Home },
   "/Admin": { view: Admin, script: setupAdmin },
   "/Contestant": { view: Contestant },
+  "/login": { view: login }
+
 };
 
 export function router() {

@@ -37,7 +37,9 @@ export default function loginScript() {
         }
       });
 
-      function loginWithGoogle() {
+}
+/*
+ function loginWithGoogle() {
         // Implement Google OAuth login flow here
         alert('Google login is not implemented yet.');
       }
@@ -45,5 +47,4 @@ export default function loginScript() {
       function navigate(page) {
         // Implement navigation logic here
         alert('Navigation to ' + page + ' is not implemented yet.');
-      }
-}
+      } */

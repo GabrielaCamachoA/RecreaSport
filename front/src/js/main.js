@@ -1,10 +1,14 @@
 // importamos funcion router
 import { router } from "../routes/router";
 import { logout } from "./auth";
+import contestantScript from "../views/scripts/contestantScript";
 
 document.addEventListener("includes-loaded", () => {
   // ejecutamos router inicialmente
   router();
+
+  // Initialize event delegation for Contestant tabs once
+  contestantScript();
 
   // interceptamos clicks internos de pagina
   document.addEventListener("click", (e) => {

@@ -1,3 +1,7 @@
+/* #1B3341    blue
+#00A22F    green
+#FFFFFF    white */
+
 /* ============================
    CONTENEDOR PRINCIPAL
    ============================ */
@@ -10,7 +14,7 @@
 
 /* Estado colapsado */
 .general-container.collapsed {
-  grid-template-columns: 60px 1fr; /* aside reducido */
+  grid-template-columns: 30px 1fr; /* aside reducido */
 }
 
 /* ============================
@@ -18,7 +22,7 @@
    ============================ */
 #sidebar {
   height: 100vh;
-  background: #1e293b; /* azul oscuro elegante */
+  background: #1e293bd3; /* azul oscuro elegante */
   color: white;
   padding: 1rem;
   position: relative;
@@ -38,7 +42,7 @@
   position: absolute;
   top: 1rem;
   right: -15px; /* sobresale hacia el main */
-  background: #2563eb;
+  background: #0d883c;
   border: none;
   color: white;
   padding: 10px 14px;
@@ -51,7 +55,7 @@
 }
 
 .toggle-btn:hover {
-  background: #1d4ed8;
+  background: #074e23;
 }
 
 /* Perfil */
@@ -178,6 +182,11 @@
 /* HEADER */
 .header {
   padding: 0.5rem 1rem;
+}
+
+.header .logo img {
+  height: 70px;
+  margin-bottom: 0.5rem;
 }
 
 .header a.nav-link {

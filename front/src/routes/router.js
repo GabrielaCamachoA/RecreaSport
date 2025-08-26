@@ -2,6 +2,7 @@
 import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
+import Trainer from "../views/trainer.js";
 import AccessDenied from "../views/accessDenied.js";
 import {
   isAutenticated,

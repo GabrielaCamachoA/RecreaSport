@@ -2,7 +2,11 @@
 import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import Home from "../views/home.js";
+<<<<<<< ours
 import Contestant from "../views/contestant.js";
+=======
+import Trainer from "../views/trainer.js";
+>>>>>>> theirs
 import AccessDenied from "../views/accessDenied.js";
 <<<<<<< HEAD
 import setupAdmin from "../views/scripts/adminScript.js";

@@ -1,0 +1,85 @@
+ #trainer-panel { font-family: inherit; }
+
+  #trainer-panel .card-stat {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    background: #fff;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #trainer-panel .stat-title { font-size: .92rem; color: #495057; font-weight: 600; }
+  #trainer-panel .stat-value { font-size: 1.6rem; font-weight: 700; margin-top: .15rem; color: #111; }
+
+  #trainer-panel .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: none;
+    font-size: 1.15rem;
+    color: #6c757d;
+  }
+  #trainer-panel .stat-icon.text-success { color: #198754; border-color: rgba(25,135,84,.12); }
+  #trainer-panel .stat-icon.text-danger  { color: #dc3545; border-color: rgba(220,53,69,.12); }
+  #trainer-panel .stat-icon.text-warning { color: #ffb703; border-color: rgba(255,183,3,.12); }
+
+  #trainer-panel .nav-pills .nav-link {
+    border-radius: 999px;
+    background: #f4f6f8;
+    color: #444;
+    padding: .35rem .8rem;
+    margin-right: .45rem;
+    font-weight: 500;
+    box-shadow: none;
+    border: 0;
+  }
+  #trainer-panel .nav-pills .nav-link.active {
+    background: #ffffff;
+    color: #0d6efd;
+    border: 1px solid #e9ecef;
+    box-shadow: none;
+  }
+
+  #trainer-panel .table-card {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    background: #fff;
+    padding: 18px;
+  }
+
+  #trainer-panel .table-custom thead th {
+    background: transparent;
+    border-bottom: 2px solid #e9ecef;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+  }
+  #trainer-panel .table-custom tbody td {
+    border-top: 1px solid #f1f3f5;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    vertical-align: middle;
+  }
+  #trainer-panel .table-custom tbody tr:first-child td {
+    border-top: 1px solid #e9ecef;
+  }
+
+  #trainer-panel .badge-attend {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: .28rem .6rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: .82rem;
+  }
+
+  @media (max-width: 767.98px) {
+    #trainer-panel .card-stat { min-height: auto; padding: .9rem; }
+    #trainer-panel .stat-value { font-size: 1.25rem; }
+  }

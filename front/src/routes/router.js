@@ -12,8 +12,7 @@ const routes = {
   "/": { view: Home },
   "/Admin": { view: Admin, script: setupAdmin },
   "/Contestant": { view: Contestant },
-  "/login": { view: login }
-
+  "/login": { view: login },
 };
 
 export function router() {

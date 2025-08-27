@@ -49,6 +49,37 @@ async function startServer() {
       }
     });
 
+    // login
+    app.post("/login", async (req, res) => {
+      const {username, password} = req.body;
+      try {
+        const user = await Users.findOne({where: {name: username}});
+        if (!user) {
+          return res.status(404).json({ success: false, message: "Usuario no encontrado" });
+        }
+
+        if (user.number_id !== password) {
+          return res.status(401).json({ success: false, message: "Credenciales inválidas" });
+        }
+
+        res.status(200).json({
+          success: true,
+          message: "Login exitoso",
+          user:{
+            id: user.id_user,
+            username: user.name,
+            role: user.id_rol
+          }
+        });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          message: "Error en el login",
+          error: error.message,
+        });
+      }
+    });
+
     app.listen(PORT, () => {
       console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
     });

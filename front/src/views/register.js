@@ -2,7 +2,7 @@ export default function Register() {
   return `
  <div class="container">
         <h2>Únete al programa RecreaSport 2025</h2>
-          <form id="registroForm">
+          <form id="registroForm" class="registerFrom">
   <!-- Paso 1 -->
   <div class="step" id="step1">
      <div class="mb-3">
@@ -42,7 +42,7 @@ export default function Register() {
             <option value="3">Otro</option>
           </select>
         </div>
-    <button type="button" class="btn btn-dark" onclick="nextStep()">Siguiente</button>
+    <button type="button" class="btn btn-success" id="nextBtn">Siguiente</button>
   </div>
 
   <!-- Paso 2 -->
@@ -96,8 +96,8 @@ export default function Register() {
             <option value="6">Ninguno</option>
           </select>
         </div>
+        <button type="button" class="btn btn-success" id="prevBtn">Atrás</button>
         <button type="submit" class="btn btn-success">Completar Registro</button>
-    <button type="button" class="btn btn-dark" onclick="prevStep()">Atrás</button>
   </div>
 </form>
         </div>

@@ -38,7 +38,6 @@ export default function registerScript() {
 
     console.log("Datos a enviar:", data);
 
-    // Aquí puedes hacer fetch a tu API
     // fetch('/api/register', { method: 'POST', body: JSON.stringify(data) })
   });
 }

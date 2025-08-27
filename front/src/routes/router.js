@@ -19,7 +19,7 @@ const routes = {
   "/admin": { view: Admin, script: setupAdmin, guarded: validateGuardedPath("/admin"), role: [1] },
   "/trainer": { view: Trainer,  guarded: validateGuardedPath("/trainer"), role:[2]},
   "/contestant": { view: Contestant,  guarded: validateGuardedPath("/contestant"), role:[3] },
-  "/register": {view: Register}
+  "/register": {view: Register, script: registerScript}
 };
 
 export function router() {

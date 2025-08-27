@@ -1,19 +1,21 @@
-form{
+.registerFrom{
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
     border-radius: 20px;
+    width: 100%;
+    min-width: 400px;
 }
-form .document_par{
+.registerFrom .document_par{
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 .container{
     box-shadow: 1px 4px 6px 1px gray;
-    background-image: url(/front/public/images/bgRegister.jpg);
+    background-image: url("../../../public/images/bgRegister.jpg");
     background-size: cover;
     border-radius: 20px;
     padding: 0;
@@ -21,8 +23,13 @@ form .document_par{
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    min-height: 300px
+    width: 40%;
+    min-width: 500px;
 }
-form{
+.registerFrom{
     margin-top: 20px;
+}
+.container h2{
+color: #fff;
+text-align: center;
 }

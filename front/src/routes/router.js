@@ -13,9 +13,24 @@ import registerScript from "../views/scripts/registerScript.js";
 // definicion de rutas disponibles en la aplicacion
 const routes = {
   "/": { view: Home },
-  "/Admin": { view: Admin, script: setupAdmin },
-  "/Contestant": { view: Contestant },
-  "/login": { view: login },
+  "/login": { view: login, script: loginScript },
+  "/admin": {
+    view: Admin,
+    script: setupAdmin,
+    guarded: validateGuardedPath("/admin"),
+    role: [1],
+  },
+  "/trainer": {
+    view: Trainer,
+    guarded: validateGuardedPath("/trainer"),
+    role: [2],
+  },
+  "/contestant": {
+    view: Contestant,
+    guarded: validateGuardedPath("/contestant"),
+    role: [3],
+  },
+  "/register": { view: Register, script: registerScript },
 };
 
 export function router() {

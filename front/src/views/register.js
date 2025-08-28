@@ -1,6 +1,6 @@
 export default function Register() {
   return `
- <div class="container">
+ <div class="container-register">
         <h2>Únete al programa RecreaSport 2025</h2>
           <form id="registroForm" class="registerFrom">
   <!-- Paso 1 -->

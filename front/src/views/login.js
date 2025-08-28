@@ -2,7 +2,7 @@ export default function login() {
   return`
      <form id="login-form">
     <div class="text-center mb-4">
-        <img src="../logo.png" alt="RecreaSport Logo" class="img-fluid" style="max-height: 100px;">
+        <img src="../../../public/images/RecreasportLOGO.png" alt="RecreaSport Logo" class="img-fluid" style="max-height: 100px;">
     </div>
     
     <h2 class="text-center mb-4">Login</h2>

@@ -10,207 +10,104 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif
-}
-.general-container {
-  display: grid;
-  grid-template-columns: 250px 1fr; /* aside fijo de 250px */
-  height: 100vh;
-  transition: grid-template-columns 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
 }
 
-/* Estado colapsado */
-.general-container.collapsed {
-  grid-template-columns: 30px 1fr; /* aside reducido */
-}
-
-/* ============================
-   ASIDE
-   ============================ */
-#sidebar {
-  height: 100vh;
-  background: #142740 ; /* azul oscuro elegante */
-  color: white;
-  padding: 1rem;
-  position: relative;
-  overflow: hidden; /* oculta contenido al colapsar */
-  transition: all 0.3s ease;
-}
-
-/* Ocultar contenido interno al colapsar */
-.general-container.collapsed #sidebar .aside-content {
-  display: none;
-}
-
-/* ============================
-   BOTÓN TOGGLE
-   ============================ */
-.toggle-btn {
-  position: absolute;
-  top: 1rem;
-  right: -15px; /* sobresale hacia el main */
-  background: #0d883c;
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background 0.3s ease;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.toggle-btn:hover {
-  background: #074e23;
-}
-
-/* Perfil */
-.aside-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.profile-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile-info {
-  line-height: 1.2;
-}
-
-.profile-name {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-.profile-role {
-  font-size: 0.85rem;
-  color: #9ca3af; /* gris claro */
-  margin: 0;
-}
-
-/* Menú */
-.aside-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.aside-menu li {
-  margin: 0.6rem 0;
-}
-
-.aside-menu a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  color: #e5e7eb;
-  font-weight: 500;
-  transition: background 0.3s;
-}
-
-.aside-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.icon {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-/* Badge */
-.badge {
-  background: #3b82f6;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 20px;
-}
-
-.badge.green {
-  background: #22c55e;
-}
-.badge.red {
-  background: #ef4444;
-}
-
-/* Footer con botón */
-.aside-footer {
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.aside-upgrade {
-  width: 100%;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 8px;
-  background: #3b82f6;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.aside-upgrade:hover {
-  background: #2563eb;
-}
-
-/* ============================
-   MAIN-CONTAINER
-   ============================ */
-.main-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header - contenido - footer */
-  height: 100vh;
-  overflow: hidden;
-  background-color: #f4f4f4;
-}
-
-/* NUEVA REGLA PARA EL HEADER */
-.container-fluid {
-  border-bottom: 2px solid #ccc;
-}
 
 /* HEADER */
 .header {
-  padding: 0.5rem 1rem;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.header .header-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+}
 .header .logo img {
-  height: 70px;
+  height: 60px;
   margin-bottom: 0.5rem;
 }
-
-.header a.nav-link {
-  color: #000;
-  font-weight: 500;
-  transition: color 0.2s ease-in-out;
+.header .logo{
+  display: flex;
+  align-items: center;
+}
+.header ul li a{
+    text-decoration: none;
+    color: #037c25;
 }
 
-.header a.nav-link:hover {
+/* section 1*/
+.section-bg {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; /* el texto resalta sobre el fondo */
+  text-align: center;
+  overflow: hidden;
+}
+
+.section-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../public/images/bg_alcaldia.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);   /* ajusta el nivel de desenfoque */
+  z-index: 0;
+}
+
+.section-bg * {
+  position: relative;
+  z-index: 1; /* mantiene el texto nítido encima */
+}
+.section-bg .btn{
+  display: flex;
+  gap: 10px;
+}
+.section-bg .btn a{
+  text-decoration: none;
   color: #fff;
-  text-decoration: underline;
+  background-color: #037c25;
+  padding: 4px 6px;
+  border-radius: 6px;
 }
 
-/* CONTENIDO CENTRAL */
-.content {
-  padding: 1rem;
-  overflow-y: auto;
+/* section 2*/
+.section-deports{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 600px;
+}
+.tarjet img{
+width: 60px;
 }
 
-
+.tarjet{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 0.5rem;
+}

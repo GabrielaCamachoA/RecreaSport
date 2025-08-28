@@ -13,7 +13,7 @@
     justify-content: center;
     gap: 10px;
 }
-.container{
+.container-register{
     box-shadow: 1px 4px 6px 1px gray;
     background-image: url("../../../public/images/bgRegister.jpg");
     background-size: cover;
@@ -29,7 +29,7 @@
 .registerFrom{
     margin-top: 20px;
 }
-.container h2{
+.container-register h2{
 color: #fff;
 text-align: center;
 }

@@ -3,7 +3,7 @@ import { login, updateAuthButtons } from "../../js/auth.js";
 export default function loginScript() {
   document.getElementById("login-form").addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
     const rememberMe = document.getElementById("remember-me").checked;
@@ -27,13 +27,30 @@ export default function loginScript() {
       // Guardar usuario en localStorage o sessionStorage
      login(data.user.username, password, data.user.role, rememberMe, window.location.pathname)
       updateAuthButtons();
-      alert("✅ Login exitoso");
 
       // Redirige según rol
-      if (data.user.role === 1) window.location.hash = "#admin";
-      else if (data.user.role === 2) window.location.hash = "#trainer";
-      else if (data.user.role === 3) window.location.hash = "#contestant";
-      else window.location.hash = "#";
+      Toastify({
+        text: "¡Ingreso exitoso!",
+        duration: 3000, // toast visible por 3 segundos
+        gravity: "bottom",
+        position: "right",
+        backgroundColor: "#4CAF50",
+        close: true,
+      }).showToast();
+      
+      // Redirigir después de 3 segundos (3000 ms)
+      setTimeout(() => {
+        if (data.user.role === 1) {//esto es muy forzado pero es una prueba ya qula pagina se quedaba en login, pronto se cambiara esto
+          window.location = "http://localhost:5173/admin";
+        } else if (data.user.role === 2) {
+          window.location = "http://localhost:5173/trainer";
+        } else if (data.user.role === 3) {
+          window.location = "http://localhost:5173/contestant";
+        } else {
+          window.location.hash = "#";
+        }
+      }, 800);
+      
       
     } catch (error) {
       console.error("Error durante el login:", error);

@@ -5,6 +5,7 @@ import cors from "cors";
 import { Users } from "./models/index.js";
 const PORT = 5000;
 const app = express();
+app.use(express.json()); 
 
 app.use(
   cors({
@@ -79,6 +80,53 @@ async function startServer() {
         });
       }
     });
+
+
+
+    app.post("/register", async (req, res) => {
+      console.log(req.body)
+      const {
+        username,
+        surname,
+        phone,
+        at_birthday,
+        attendanceRate,
+        role,
+        id_document_type,
+        number_id,
+        id_gender,
+        id_demographic,
+      } = req.body;
+    
+      try {
+        const newUser = await Users.create({
+          name: username,
+          surname: surname,
+          phone: phone,
+          at_birthday: at_birthday,
+          attendanceRate: attendanceRate || null,
+          id_rol: role,
+          id_document_type: id_document_type,
+          number_id: number_id,
+          id_gender: id_gender,
+          id_demographic: id_demographic,
+        });
+    
+        res.status(201).json({
+          success: true,
+          message: "Usuario registrado con éxito",
+          user: newUser,
+        });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          message: "Error al crear usuario",
+          error: error.message,
+        });
+      }
+    });
+    
+    
 
     app.listen(PORT, () => {
       console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);

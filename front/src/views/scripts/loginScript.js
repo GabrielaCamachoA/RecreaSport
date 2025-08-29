@@ -30,27 +30,27 @@ export default function loginScript() {
 
       // Redirige según rol
       Toastify({
-        text: "¡Ingreso exitoso!",
-        duration: 3000, // toast visible por 3 segundos
-        gravity: "bottom",
-        position: "right",
-        backgroundColor: "#4CAF50",
-        close: true,
-      }).showToast();
-      
-      // Redirigir después de 3 segundos (3000 ms)
-      setTimeout(() => {
-        if (data.user.role === 1) {//esto es muy forzado pero es una prueba ya qula pagina se quedaba en login, pronto se cambiara esto
-          window.location = "http://localhost:5173/admin";
-        } else if (data.user.role === 2) {
-          window.location = "http://localhost:5173/trainer";
-        } else if (data.user.role === 3) {
-          window.location = "http://localhost:5173/contestant";
-        } else {
-          window.location.hash = "#";
-        }
-      }, 800);
-      
+  text: "¡Ingreso exitoso!",
+  duration: 3000, // toast visible por 3 segundos
+  gravity: "bottom",
+  position: "right",
+  backgroundColor: "#4CAF50",
+  close: true,
+}).showToast();
+
+// Redirigir después de 3 segundos (3000 ms)
+setTimeout(() => {
+  if (data.user.role === 1) {
+    window.location = "http://localhost:5173/admin";
+  } else if (data.user.role === 2) {
+    window.location = "http://localhost:5173/trainer";
+  } else if (data.user.role === 3) {
+    window.location = "http://localhost:5173/contestant";
+  } else {
+    window.location.hash = "#";
+  }
+}, 800);
+
       
     } catch (error) {
       console.error("Error durante el login:", error);

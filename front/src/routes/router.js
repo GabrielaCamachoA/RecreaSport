@@ -10,6 +10,7 @@ import loginScript from "../views/scripts/loginScript.js";
 import Register from "../views/register.js";
 import registerScript from "../views/scripts/registerScript.js";
 import Contact from "../views/contact.js";
+import contactScript from "../views/scripts/contactScript.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {

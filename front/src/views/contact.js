@@ -9,10 +9,10 @@ export default function Contact() {
   <div class="contact-container">
     <!-- Form -->
     <form class="contact-form">
-      <input type="text" placeholder="Email">
-      <input type="text" placeholder="Name">
-      <textarea placeholder="Message"></textarea>
-      <button type="submit">Enviar</button>
+      <input type="text" placeholder="Email" required>
+      <input type="text" placeholder="Name" required>
+      <textarea placeholder="Message"></textarea required>
+      <button type="button" id="btn-form">Enviar</button>
     </form>
     
   <!-- Info Cards -->
@@ -42,4 +42,5 @@ export default function Contact() {
 </section>
 
   `;
+
 }

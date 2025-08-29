@@ -1,35 +1,132 @@
-.registerFrom{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #fff;
-    border-radius: 20px;
-    width: 100%;
-    min-width: 400px;
-}
-.registerFrom .document_par{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
 .container-register{
-    box-shadow: 1px 4px 6px 1px gray;
-    background-image: url("../../../public/images/bgRegister.jpg");
-    background-size: cover;
-    border-radius: 20px;
-    padding: 0;
-    display: flex;
+    background-image: url(../../../public/images/bg-login.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 80px;
+}
+
+/* Layout general */
+.register-wrapper {
+  display: flex;
+  height: 70vh;
+  margin: 20px auto;
+  box-shadow: 0 0  8px 6px #1b334139;
+  border-radius: 12px;
+}
+
+/* Columna izquierda */
+.register-left {
+  flex: 1;
+  background: #1d3258; /* azul fuerte */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.register-left h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.register-left p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-outline:hover {
+  background: white;
+  color: #1e40af;
+}
+
+/* Columna derecha */
+.register-right {
+  flex: 1.2;
+  background: rgba(255, 255, 255, 0.8); 
+  backdrop-filter: blur(4px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+  border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.register-right h2 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Formulario */
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-row {
+  display: flex;
+  gap: 15px;
+}
+
+.registerForm input,
+.registerForm select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.registerForm input:focus,
+.registerForm select:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 5px rgba(30, 64, 175, 0.4);
+  outline: none;
+}
+
+/* Botones */
+
+button[type="button"], button[type="submit"]  {
+    background-color: #037a24;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #fff;
+    transition: .2s ease-in-out;
+}
+button[type="button"]:hover, button[type="submit"]:hover{
+    background-color: #279a47;
+} 
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-wrapper {
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 40%;
-    min-width: 500px;
-}
-.registerFrom{
-    margin-top: 20px;
-}
-.container-register h2{
-color: #fff;
-text-align: center;
+  }
+  .register-left {
+    display: none;
+  }
 }

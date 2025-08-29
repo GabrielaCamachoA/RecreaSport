@@ -12,14 +12,19 @@ document.addEventListener("includes-loaded", () => {
 
   // interceptamos clicks internos de pagina
   document.addEventListener("click", (e) => {
-    let $btnLogout = document.getElementById("btnLogout");
-    if (e.target == $btnLogout) {
-      e.preventDefault();
+  // interceptar solo links internos con data-link
+  if (e.target.matches("a[data-link]")) {
+    e.preventDefault();
+
+    // caso especial: Logout
+    if (e.target.id === "btnLogout") {
       logout();
-      history.pushState(null, null, e.target.href);
-      router();
     }
-  });
+
+    history.pushState(null, null, e.target.getAttribute("href"));
+    router();
+  }
+});
   // manejo de navegacion con botones de atras/adelante
   window.addEventListener("popstate", router);
 

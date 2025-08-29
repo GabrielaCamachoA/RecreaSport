@@ -7,18 +7,16 @@ export default function registerScript() {
 
   nextBtn.addEventListener("click", () => {
     const stepDiv = document.getElementById(`step${currentStep}`);
-    const inputs = stepDiv.querySelectorAll("input");
+    const inputs = stepDiv.querySelectorAll("input, select");
 
-    // Validar campos
     for (let input of inputs) {
       if (!input.checkValidity()) {
-        alert(`Por favor llena correctamente el campo: ${input.placeholder}`);
+        alert(`Por favor llena correctamente el campo: ${input.placeholder || input.name}`);
         input.focus();
         return;
       }
     }
 
-    // Avanzar al siguiente paso
     stepDiv.style.display = "none";
     currentStep++;
     document.getElementById(`step${currentStep}`).style.display = "block";
@@ -31,13 +29,49 @@ export default function registerScript() {
   });
 
   // Envío final
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita recargar la SPA
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("Datos a enviar:", data);
+    // Mapeo para que coincida con lo que espera el backend
+    const payload = {
+      username: data.first_name,
+      surname: data.last_name,
+      phone: data.phone,
+      at_birthday: data.birth_date,
+      attendanceRate: null, // puedes ajustarlo si lo necesitas
+      role: 3, // puedes definir un valor por defecto
+      id_document_type: data.document_type,
+      number_id: data.id_number,
+      id_gender: data.gender,
+      id_demographic: data.demografic,
+    };
 
-    // fetch('/api/register', { method: 'POST', body: JSON.stringify(data) })
+    try {
+      const response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("✅ Registro exitoso");
+        console.log("Respuesta del servidor:", result);
+        form.reset();
+        // Redireccionar o mostrar mensaje
+      } else {
+        alert(`❌ Error: ${result.message}`);
+        console.error(result);
+      }
+    } catch (error) {
+      alert("❌ Error al enviar los datos");
+      console.error("Error en fetch:", error);
+    }
   });
 }

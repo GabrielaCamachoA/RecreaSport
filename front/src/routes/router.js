@@ -9,11 +9,13 @@ import login from "../views/login.js";
 import loginScript from "../views/scripts/loginScript.js";
 import Register from "../views/register.js";
 import registerScript from "../views/scripts/registerScript.js";
+import Contact from "../views/contact.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
   "/": { view: Home },
   "/login": { view: login, script: loginScript },
+  "/contact": { view: Contact },
   "/admin": {
     view: Admin,
     script: setupAdmin,

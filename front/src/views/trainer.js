@@ -1,5 +1,7 @@
 import "./styles/trainer.css"
 
+import TrainerScript from "./scripts/trainerScript"
+
 export default function Trainer() {
   return `
 <div id="trainer-panel" class="container-fluid px-4 py-4">
@@ -97,69 +99,15 @@ export default function Trainer() {
             <th class="fw-semibold">Contacto</th>
             <th class="fw-semibold">Edad</th>
             <th class="fw-semibold">Tasa de Asistencia</th>
-            <th class="fw-semibold">Contacto de Emergencia</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="fw-semibold">Carlos Mendoza</div>
-              <div class="text-muted small">carlos.mendoza@email.com</div>
-            </td>
-            <td>+57 300 123 4567</td>
-            <td>25</td>
-            <td><span class="badge badge-attend">80%</span></td>
-            <td>N/A</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="fw-semibold">Luis Rodríguez</div>
-              <div class="text-muted small">luis.rodriguez@email.com</div>
-            </td>
-            <td>+57 302 345 6789</td>
-            <td>32</td>
-            <td><span class="badge badge-attend">80%</span></td>
-            <td>N/A</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="fw-semibold">Roberto Silva</div>
-              <div class="text-muted small">roberto.silva@email.com</div>
-            </td>
-            <td>+57 304 567 8901</td>
-            <td>29</td>
-            <td><span class="badge badge-attend">80%</span></td>
-            <td>N/A</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="fw-semibold">Diego Morales</div>
-              <div class="text-muted small">diego.morales@email.com</div>
-            </td>
-            <td>+57 306 789 0123</td>
-            <td>31</td>
-            <td><span class="badge badge-attend">80%</span></td>
-            <td>N/A</td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="fw-semibold">Andrés Castro</div>
-              <div class="text-muted small">andres.castro@email.com</div>
-            </td>
-            <td>+57 308 901 2345</td>
-            <td>27</td>
-            <td><span class="badge badge-attend">80%</span></td>
-            <td>N/A</td>
-          </tr>
+        <tbody id="Table-users">
+          
         </tbody>
       </table>
     </div>
   </div>
 </div>
 `
-  
 }
+TrainerScript()

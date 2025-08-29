@@ -11,11 +11,13 @@ import login from "../views/login.js";
 import loginScript from "../views/scripts/loginScript.js";
 import Register from "../views/register.js";
 import registerScript from "../views/scripts/registerScript.js";
+import Contact from "../views/contact.js";
 
 // definicion de rutas disponibles en la aplicacion
 const routes = {
   "/": { view: Home},
   "/login": { view: login, script: loginScript},
+  "/contact": {view:Contact},
   "/admin": { view: Admin, script: setupAdmin, guarded: validateGuardedPath("/admin"), role: [1] },
   "/trainer": { view: Trainer,  guarded: validateGuardedPath("/trainer"), role:[2]},
   "/contestant": { view: Contestant,  guarded: validateGuardedPath("/contestant"), role:[3] },

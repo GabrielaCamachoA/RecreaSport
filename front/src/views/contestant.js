@@ -1,6 +1,17 @@
 export default function Contestant() {
+  const authToken = sessionStorage.getItem("auth_token") || localStorage.getItem("auth_token");
+  let userData = { user: "Invitado" };
+
+  if (authToken) {
+    try {
+      userData = JSON.parse(authToken);
+    } catch (error) {
+      console.error("Error parsing auth_token:", error);
+    }
+  }
+
   return `
-<div class="container py-4">
+<div class="container py-4 mt-6">
 
   <!-- header -->
   <div class="d-flex justify-content-between align-items-start mb-4">
@@ -9,8 +20,8 @@ export default function Contestant() {
       <p class="text-muted">Bienvenido al Programa Deporte Recreativo 2025</p>
     </div>
     <div class="py-2 px-3">
-      <span class="fw-semibold fs-6">Hola,</span><br>
-      <span class="fw-bold">Carlos Martínez</span>
+      <span class="greeting fw-semibold fs-6">Hola ,</span><br>
+      <span class="fw-bold fs-5">${userData.user}</span>
     </div>
   </div>
 
@@ -61,9 +72,6 @@ export default function Contestant() {
           </div>
           <div class="col-md-6 mb-2">
             <i class="bi bi-geo-alt text-success"></i> <strong>Localidad:</strong> Norte Centro Histórico - Norte
-          </div>
-          <div class="col-md-6 mb-2">
-            <i class="bi bi-telephone text-danger"></i> <strong>Contacto de Emergencia:</strong> Ana Martínez (300 456 7890)
           </div>
           <div class="col-md-6 mb-2">
             <i class="bi bi-person-badge text-secondary"></i> <strong>Edad:</strong> 28 años

@@ -20,12 +20,19 @@
 .header {
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
+  width: 100%;
   z-index: 2;
-  background-color: #fff;
+    transition: background-color 0.8s ease, box-shadow 0.4s ease;
 }
+
+.header.active {
+  background-color: #ffffff;   /* fondo blanco */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* opcional, sombra al hacer scroll */
+}
+
+
 .header .header-menu{
   display: flex;
   align-items: center;

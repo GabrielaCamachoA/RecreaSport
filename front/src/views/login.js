@@ -12,7 +12,7 @@ export default function login() {
 <h2 class="text-center mb-4">Login</h2>
 
       <button type="submit" class="btn w-100 mb-3 login" style="max-width: 500px; margin auto;" >Login</button>
-      <p>No tienes cuenta? <a href="/register" class="link-register">Registrate</a></p>
+      <p>No tienes cuenta? <a href="/register" class="link-register" data-link>Registrate</a></p>
       </form>
     </div>
 

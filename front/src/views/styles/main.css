@@ -3,7 +3,7 @@
 #FFFFFF    white */
 
 /* ============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
@@ -28,12 +28,30 @@
 .header .header-menu {
   display: flex;
   align-items: center;
-  gap: 20px;
+  color: #000;
+  gap: 10px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #066420;
+}
+
+.aside-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* Menu */
+.aside-menu {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
-.header ul li {
-  position: relative;
-  transition: all 0.3s ease-in-out;
+
+.aside-menu li {
+  margin: 0.6rem 0;
 }
 .header .logo img {
   height: 60px;
@@ -42,23 +60,23 @@
 .header .logo {
   display: flex;
   align-items: center;
-}
-.header ul li a {
+  justify-content: space-between;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
   color: #066420;
 }
 
+
 /* section 1*/
 .section-bg {
   position: relative;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white;
   text-align: center;
   overflow: hidden;
 }
@@ -86,20 +104,19 @@
   font-size: 4rem;
   margin: 0;
   font-weight: 700;
-  text-shadow: 6px 2px 7px #182232;
 }
 .div-bg {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: #182232a9;
   padding: 10px;
   border: 1px solid;
   border-radius: 10px;
   margin-top: 50px;
   transition: 0.2s ease-in-out;
   cursor: pointer;
+  background-color: #152237;
 }
 .div-bg p {
   margin: 0;
@@ -118,8 +135,9 @@
 
 .section-bg p {
   font-size: 20px;
-  font-weight: 300;
-  text-shadow: 4px 2px 4px #182232;
+  font-weight: 400;
+  color: #fff;
+
 }
 
 .p-bg {
@@ -289,11 +307,11 @@
   margin: 60px auto;
   display: flex;
   width: 80%;
-  height: 66vh;
+  height: 40vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white;
   text-align: center;
 }
 .program::before {
@@ -312,10 +330,6 @@
   border-radius: 20px;
 }
 
-.program * {
-  position: relative;
-  z-index: 1; /* mantiene el texto nítido encima */
-}
 
 .cards-program {
   max-width: 900px;
@@ -410,7 +424,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white; 
   text-align: center;
   overflow: hidden;
 }
@@ -450,7 +464,7 @@
   font-weight: 600;
 }
 
-/* Contenedor principal */
+
 .contact-container {
   margin-top: 24px;
   display: flex;
@@ -460,7 +474,7 @@
   margin-bottom: 3rem;
 }
 
-/* Formulario */
+/* contact form */
 .contact-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -469,7 +483,7 @@
   background: #fff;
 }
 
-/* FORMULARIO */
+/* FORM */
 .contact-form {
   background: #fafafa;
   padding: 30px;
@@ -501,7 +515,7 @@
 
 .contact-form button {
   display: inline-block;
-  background: #152237; /* Naranja del ejemplo */
+  background: #152237; 
   color: #fff;
   border: none;
   padding: 14px 30px;
@@ -515,7 +529,7 @@
   background: #374966;
 }
 
-/* TARJETAS DE INFORMACIÓN */
+/*  INFORMATION CARDS*/
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -545,7 +559,7 @@
 }
 
 /* =========================
-   MAPA
+   MAP
    ========================= */
 .map iframe {
   width: 60%;
@@ -568,7 +582,6 @@
 .cards-footer {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
   flex-wrap: wrap;
 }
 
@@ -583,6 +596,7 @@
 
 .recreasport .p {
   color: #64ed8b;
+  font-style: italic;
 }
 
 .government ul {

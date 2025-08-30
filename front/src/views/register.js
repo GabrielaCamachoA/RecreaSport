@@ -4,15 +4,13 @@ export default function Register() {
     <div class="register-wrapper">
     <!-- Columna izquierda -->
     <div class="register-left">
-      <h1>RecreaSport</h1>
+      <h2>Únete a RecreaSport</h2>
       <p>¿Ya tienes una cuenta?</p>
-      <p>Inicia sesión para continuar con tus actividades deportivas.</p>
-      <button class="btn-outline">Iniciar Sesión</button>
+      <a class="btn-outline" href="/login" data-link>Iniciar Sesión</a>
     </div>
 
     <!-- Columna derecha -->
     <div class="register-right">
-      <h2>Únete al programa RecreaSport 2025</h2>
       <p class="subtitle">Completa tus datos para iniciar tu registro</p>
       
       <form id="registroForm" class="registerForm">

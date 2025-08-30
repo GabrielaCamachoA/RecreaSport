@@ -40,3 +40,21 @@ document.addEventListener("includes-loaded", () => {
     });
   }
 });
+function initNavScroll() {
+  const nav = document.querySelector('.header');
+
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        nav.classList.add('active');
+      } else {
+        nav.classList.remove('active');
+      }
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Esperar un poco a que se cargue el include
+  setTimeout(initNavScroll, 300);
+});

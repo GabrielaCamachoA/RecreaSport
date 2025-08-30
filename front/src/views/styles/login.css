@@ -2,20 +2,20 @@
     background-image: url(../../../public/images/bg-login.png);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 79px;
+    padding: 66px;
 }
-/* Contenedor principal más pequeño */
+/* Container login */
 .container-login {
     display: flex;
     border-radius: 8px;
     margin: 40px auto;
-    max-width: 750px; /* más angosto */
-    min-height: 400px; /* más compacto */
+    max-width: 750px; 
+    min-height: 400px; 
     box-shadow: 0 0  23px 6px #1b334139;
-    overflow: hidden; /* asegura bordes limpios */
+    overflow: hidden; 
 }
 
-/* Columna izquierda: formulario */
+/* Left column: form */
 .form-login {
     width: 50%;
     display: flex;
@@ -45,7 +45,7 @@
     font-size: 14px;
 }
 
-/* Botón */
+/* button */
 .form-login .login {
     margin-top: 10px;
     background: #1d3258;
@@ -62,7 +62,7 @@
     color: #fff;
 }
 
-/* Columna derecha: mensaje ocupa toda la altura */
+/* right column */
 .div-login {
     background-color: #037c25;
     color: #fff;

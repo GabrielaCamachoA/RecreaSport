@@ -78,7 +78,6 @@
     font-weight: 600;
     font-size: .82rem;
   }
-
   @media (max-width: 767.98px) {
     #trainer-panel .card-stat { min-height: auto; padding: .9rem; }
     #trainer-panel .stat-value { font-size: 1.25rem; }

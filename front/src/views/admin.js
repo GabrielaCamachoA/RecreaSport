@@ -1,7 +1,7 @@
 export default function Admin() {
   return `
   
-  <div class="container-fluid mx-auto text-start">
+  <div class="container-fluid px-4 py-4">
     
         <div class="row mb-4">
             <div class="col-12 d-flex justify-content-between align-items-center">

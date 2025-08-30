@@ -3,12 +3,9 @@ export default function Home() {
   <section class="section-bg">
   <div class="div-bg">
     <img src="../public/images/champion.png" alt="champion" class="img-fluid">
-    <p>Programa Oficial 2025</p>
   </div>
-    <h2>Programa Deporte </h2>
-    <span>Recreativo</span>
-    <p >Barranquilla 2025</p>
-    <p class="p-bg">Plataforma integral para la gestión de inscripciones y seguimiento del programa deportivo recreativo de la Alcaldía de Barranquilla.</p>
+    <h2>Programa <span>RecreaSport</span></h2>
+    <p class="p-bg">Descubre todas las modalidades deportivas disponibles en el programa y únete a la que más te apasione</p>
      <div class="btn">
       <a href="/login" data-link id="btnLogin"> 
         <img src="../public/images/login.png" alt="login" class="img-fluid">
@@ -21,7 +18,6 @@ export default function Home() {
   </section>
   <section class="section-deports">
     <h2>Disciplinas Deportivas</h2>
-    <p class="p-deports">Descubre todas las modalidades deportivas disponibles en el programa y únete a la que más te apasione</p>
      <div class="cards">
       <div class="tarjet">
        <img src="../public/images/soccer.png" alt="logo-RecreaSport" class="img-fluid">
@@ -123,25 +119,21 @@ export default function Home() {
     </div>
   </section>
   <section class="program">
-    <h2>Números que demuestran el alcance y éxito de nuestro programa deportivo en toda la ciudad</h2>
+    <h2>Impacto del programa</h2>
     <div class="cards-program">
       <div>
-      <img src="../public/images/user.png" alt="user" class="img-fluid">
         <h2>3,200+</h2>
         <p>Ciudadanos Inscritos</p>
       </div>
       <div>
-      <img src="../public/images/champion.png" alt="champion" class="img-fluid">
         <h2>8</h2>
         <p>Disciplinas Deportivas</p>
       </div>
       <div>
-      <img src="../public/images/trainer.png" alt="trainer" class="img-fluid">
         <h2>45</h2>
         <p>Entrenadores</p>
       </div>
       <div>
-      <img src="../public/images/locaton2.png" alt="location" class="img-fluid">
         <h2>5</h2>
         <p>Localidades Cubiertas</p>
       </div>

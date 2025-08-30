@@ -3,7 +3,7 @@
 #FFFFFF    white */
 
 /* ============================
-   CONTENEDOR PRINCIPAL
+   MAIN CONTAINER
    ============================ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
@@ -16,97 +16,144 @@
 }
 
 
-/* HEADER */
-.header {
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  z-index: 2;
-  background-color: #fff;
+/* ============================
+   MAIN CONTAINER
+   ============================ */
+.general-container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* aside + content */
+  min-height: 100vh;
+  transition: grid-template-columns 0.3s ease;
 }
-.header .header-menu{
+
+/* Estado colapsado */
+.general-container.collapsed {
+  grid-template-columns: 60px 1fr; /*aside reducido  */
+}
+
+/* ============================
+   ASIDE
+   ============================ */
+#sidebar {
+  background: #f8f8f8; 
+  color: white;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden; /* hides content when collapsing */
+  transition: all 0.3s ease;
+}
+
+/* Hide internal content when collapsing */
+.general-container.collapsed #sidebar .aside-content {
+  display: none;
+}
+
+/* ============================
+   Toggle button
+   ============================ */
+.toggle-btn {
+ position: absolute;
+  top: 1rem;
+  right: -4px;
+  background: #037c25;
+  border: none;
+  color: white;
+  padding: 0px 10px;
+  border-radius: 20%;
+  cursor: pointer;
+  font-size: 26px;
+  transition: background 0.3s ease;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn:hover {
+  background: #139036;
+}
+
+
+.aside-logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  color: #000;
+  gap: 10px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #066420;
+}
+
+.aside-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* Menu */
+.aside-menu {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
-.header ul li {
-  position: relative;
-  transition: all 0.3s ease-in-out;
+
+.aside-menu li {
+  margin: 0.6rem 0;
 }
-.header .logo img {
-  height: 60px;
-  margin-bottom: 0.5rem;
-}
-.header .logo{
+
+.aside-menu a {
   display: flex;
   align-items: center;
-}
-.header ul li a {
+  justify-content: space-between;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  color: #066420;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 500;
+  transition: background 0.3s;
 }
-.header ul li a:hover {
-  background-color: #14ac3f;
+
+.aside-menu a:hover {
+  background: #066420;
+  color: #fff;
 }
+
 
 /* section 1*/
 .section-bg {
   position: relative;
-  height: 100vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white;
   text-align: center;
   overflow: hidden;
-}
-.section-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(../../../public/images/bg_alcaldia.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  filter: blur(4px);   /* ajusta el nivel de desenfoque */
-  z-index: 0;
+    background: 
+    linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+    url(../../../public/images/bg_alcaldia.jpeg) center/cover no-repeat;
 }
 
-.section-bg * {
-  position: relative;
-  z-index: 1; /* mantiene el texto nítido encima */
-}
+
 .section-bg h2{
   padding-top: 34px;
-  font-size:4rem;
+  color: #fff;
+  font-size:3rem;
   margin: 0;
   font-weight: 700;
-  text-shadow: 6px 2px 7px #182232;
 }
 .div-bg{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: #182232a9;
   padding: 10px;
   border: 1px solid;
   border-radius: 10px;
-  margin-top: 50px;
   transition: .2s ease-in-out;
   cursor: pointer;
+  background-color: #152237;
 }
 .div-bg p{
   margin: 0;
@@ -116,22 +163,22 @@
 }
 
 .section-bg span{
-  color: #59d87d;
+  color: #38de67;
   font-style:italic;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 50px;
-   text-shadow: 4px 2px 4px #0d5622;
 }
 
 .section-bg p{
   font-size: 20px;
-  font-weight: 300;
-  text-shadow: 4px 2px 4px #182232;
+  font-weight: 400;
+  color: #fff;
+
 }
 
 .p-bg{
   max-width: 48%;
-    font-style: italic;
+    margin-top: 10px;
     word-wrap: break-word;
     word-break: break-word;
     word-spacing: normal;
@@ -159,7 +206,7 @@
 
 /*hover of section 1*/
 .section-bg .btn a:hover{
-  background-color: #182232;
+  background-color: #169f3d;
   transform: scale(1.1);
 }
 .div-bg:hover{
@@ -173,8 +220,7 @@
     margin-top: 60px;
 }
 .section-deports h2{
-  color: #ffffff;
-  background-color: #037c25;
+  color: #1d3258;
   border-radius: 100px;
   padding: 0 20px;
   font-weight: 600;
@@ -246,7 +292,7 @@ width: 60px;
 
 /*section 3*/
 .section-locality{
-  background-color: #e6f0ff;
+
     color: #1d3258;
     padding: 20px;
 }
@@ -260,8 +306,7 @@ width: 60px;
     box-shadow: 0px 0px 7px 0px #1b334139;
     padding: 8px 20px;
     border-radius: 8px;
-    background-color: #1d3258;
-    color: #e6f0ff;
+    color: #1d3258;
     cursor: pointer;
     transition: .2s ease-in-out;
 }
@@ -292,34 +337,18 @@ width: 60px;
   margin: 60px auto;
   display: flex;
   width: 80%;
-  height: 66vh;
+  height: 40vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white;
   text-align: center;
-}
-.program::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(../../../public/images/bg-sport.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-   filter:brightness(0.5);  
-  z-index: 0;
-   border-radius: 20px;
-
+  background: 
+    linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+    url(../../../public/images/bg-sport.jpeg) center/cover no-repeat;
+    border-radius: 16px;
 }
 
-.program * {
-  position: relative;
-  z-index: 1; /* mantiene el texto nítido encima */
-}
 
 .cards-program{
    max-width: 900px;
@@ -343,7 +372,7 @@ width: 60px;
   width:44px;
 }
 .program h2{
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   margin-top: 20px;
 }
@@ -359,7 +388,8 @@ width: 60px;
   margin-bottom: 40px;
 }
 .section-info h2{
-  font-weight: 700;
+  font-weight: 600;
+  color: #1d3258;
 }
 .cards-info{
   max-width: 900px;
@@ -410,28 +440,12 @@ width: 60px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white; /* el texto resalta sobre el fondo */
+  color: white; 
   text-align: center;
   overflow: hidden;
-}
-.contact-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(../../../public/images/bg-contact.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  filter:brightness(0.6); 
-  z-index: 0;
-}
-
-.contact-header * {
-  position: relative;
-  z-index: 1; /* mantiene el texto nítido encima */
+  background: 
+    linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+    url(../../../public/images/bg-contact.jpg) center/cover no-repeat;
 }
 
 .contact-section {
@@ -450,7 +464,7 @@ width: 60px;
   font-weight: 600;
 }
 
-/* Contenedor principal */
+
 .contact-container {
   margin-top: 24px;
   display: flex;
@@ -460,7 +474,7 @@ width: 60px;
   margin-bottom: 3rem;
 }
 
-/* Formulario */
+/* contact form */
 .contact-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -469,12 +483,12 @@ width: 60px;
   background: #fff;
 }
 
-/* FORMULARIO */
+/* FORM */
 .contact-form {
   background: #fafafa;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0px 4px 15px rgb(7 10 19 / 62%);
 }
 
 .contact-form h2 {
@@ -501,7 +515,7 @@ width: 60px;
 
 .contact-form button {
   display: inline-block;
-  background: #152237; /* Naranja del ejemplo */
+  background: #152237; 
   color: #fff;
   border: none;
   padding: 14px 30px;
@@ -515,7 +529,7 @@ width: 60px;
   background: #374966;
 }
 
-/* TARJETAS DE INFORMACIÓN */
+/*  INFORMATION CARDS*/
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -526,7 +540,7 @@ width: 60px;
   background: #fff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0px 4px 15px rgb(7 10 19 / 62%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -546,7 +560,7 @@ width: 60px;
 }
 
 /* =========================
-   MAPA
+   MAP
    ========================= */
 .map iframe {
   width: 60%;
@@ -556,7 +570,7 @@ width: 60px;
    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.401);
 }
 
-/* FOOTER */
+
 /* FOOTER */
 .footer {
   background-color: #182232;
@@ -570,7 +584,6 @@ width: 60px;
 .cards-footer {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
   flex-wrap: wrap;
 }
 
@@ -585,6 +598,7 @@ width: 60px;
 
 .recreasport .p {
   color: #64ed8b;
+  font-style: italic;
 }
 
 .government ul {
@@ -646,4 +660,3 @@ width: 60px;
     margin-bottom: 20px;
   }
 }
-

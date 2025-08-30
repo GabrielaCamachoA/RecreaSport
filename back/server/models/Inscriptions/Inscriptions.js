@@ -13,7 +13,11 @@ const Inscriptions = sequelize.define(
     id_neighborhood: { type: DataTypes.INTEGER, allowNull: false },
     id_contestants: { type: DataTypes.INTEGER, allowNull: false },
     id_sport: { type: DataTypes.INTEGER, allowNull: false },
-    status: { type: DataTypes.BOOLEAN, allowNull: true },
+    status: {
+      type: DataTypes.ENUM("Pendiente", "Aceptada", "Rechazada"),
+      allowNull: false,
+      defaultValue: "Pendiente",
+    },
   },
   {
     tableName: "Inscriptions",

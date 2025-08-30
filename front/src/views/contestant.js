@@ -11,7 +11,7 @@ export default function Contestant() {
   }
 
   return `
-<div class="container py-4 mt-6">
+<div class="container">
 
   <!-- header -->
   <div class="d-flex justify-content-between align-items-start mb-4">

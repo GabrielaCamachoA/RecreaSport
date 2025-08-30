@@ -92,15 +92,15 @@ Start the server in development mode:
 npm run dev
 ```
 ## Project credentials
-**Admin**
+**Admin** - 
 User: Juan
 Pass: 1010123456
 
-**Trainer**
+**Trainer** -
 User: Camila
 Pass: 1011234567
 
-**Contestant**
+**Contestant** -
 User: María
 Pass: 2020345678
 

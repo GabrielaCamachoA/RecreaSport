@@ -19,6 +19,7 @@
 .header {
   padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
@@ -30,9 +31,12 @@
 .header .header-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin: 0;
+}
+.header ul li {
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 .header .logo img {
   height: 60px;
@@ -47,6 +51,12 @@
   font-weight: 600;
   font-size: 16px;
   color: #066420;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.header ul li a:hover {
+  background-color: #14ac3f;
 }
 
 /* section 1*/
@@ -552,18 +562,92 @@
 }
 
 /* FOOTER */
+/* FOOTER */
 .footer {
   background-color: #182232;
   color: #fff;
   display: flex;
-  padding: 0 50px;
-}
-.cards-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+  flex-direction: column;
+  padding: 8px 50px;
+  text-align: left;
 }
 
-.footer .recreasport .p {
-  color: #14ac3f;
+.cards-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.recreasport,
+.government,
+.social-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.recreasport .p {
+  color: #64ed8b;
+}
+
+.government ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.government ul li {
+  margin: 8px 0;
+}
+
+.government ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.government ul li a:hover,
+.social-media i:hover {
+  transform: scale(1.1);
+  color: #64ed8b;
+}
+
+.social-media i {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.social-media ul {
+  display: flex;
+  padding: 0;
+}
+
+.footer .social-media ul li {
+  margin-right: 15px;
+}
+
+.footer .footer-bottom {
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 30px;
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .cards-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recreasport,
+  .government,
+  .social-media {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }

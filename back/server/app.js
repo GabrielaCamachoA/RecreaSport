@@ -1,20 +1,20 @@
 import express from "express";
 import { sequelize, connectDB } from "./conexion/conexion.js";
-import { defineRelationships } from "./models/relationships.js"; // ← Importa las relaciones
+import { defineRelationships } from "./models/relationships.js";
 import cors from "cors";
 import { Users } from "./models/index.js";
+
 const PORT = 5000;
 const app = express();
-app.use(express.json()); 
+
+app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // URL de tu frontend
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
-
-app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Servidor funcionando 🚀");
@@ -23,19 +23,20 @@ app.get("/", (req, res) => {
 async function startServer() {
   try {
     await connectDB();
-    // Definir relaciones después de conectar la DB
     defineRelationships();
 
-    // Sincronizar modelos
+    // sincronizar modelos
     await sequelize.sync({ alter: true });
     console.log("✅ Modelos sincronizados con la base de datos.");
 
-    /* crud users */
-    /* getAll */
+    /* ==========================
+       CRUD USERS
+    ========================== */
+
+    // Obtener todos los usuarios
     app.get("/users", async (req, res) => {
       try {
         const users = await Users.findAll();
-
         res.status(200).json({
           success: true,
           data: users,
@@ -50,29 +51,44 @@ async function startServer() {
       }
     });
 
-    // login
+    // Login
     app.post("/login", async (req, res) => {
-      const {username, password} = req.body;
+      const { username, password } = req.body;
+
       try {
-        const user = await Users.findOne({where: {name: username}});
+        console.log("🔍 Buscando usuario:", `"${username}"`);
+
+        const user = await Users.findOne({
+          where: { name: username.trim() },
+        });
+
         if (!user) {
-          return res.status(404).json({ success: false, message: "Usuario no encontrado" });
+          console.log("❌ Usuario no encontrado");
+          return res
+            .status(404)
+            .json({ success: false, message: "Usuario no encontrado" });
         }
 
-        if (user.number_id !== password) {
-          return res.status(401).json({ success: false, message: "Credenciales inválidas" });
+        // Forzar ambos a string y trim
+        if (String(user.number_id).trim() !== String(password).trim()) {
+          console.log("❌ Contraseña no coincide");
+          return res
+            .status(401)
+            .json({ success: false, message: "Credenciales inválidas" });
         }
 
+        console.log("✅ Login exitoso");
         res.status(200).json({
           success: true,
           message: "Login exitoso",
-          user:{
+          user: {
             id: user.id_user,
             username: user.name,
-            role: user.id_rol
-          }
+            role: user.id_rol,
+          },
         });
       } catch (error) {
+        console.error("Error en el login:", error);
         res.status(500).json({
           success: false,
           message: "Error en el login",
@@ -81,10 +97,8 @@ async function startServer() {
       }
     });
 
-
-
+    // Registro
     app.post("/register", async (req, res) => {
-      console.log(req.body)
       const {
         username,
         surname,
@@ -97,21 +111,21 @@ async function startServer() {
         id_gender,
         id_demographic,
       } = req.body;
-    
+
       try {
         const newUser = await Users.create({
           name: username,
-          surname: surname,
-          phone: phone,
-          at_birthday: at_birthday,
+          surname,
+          phone,
+          at_birthday,
           attendanceRate: attendanceRate || null,
           id_rol: role,
-          id_document_type: id_document_type,
-          number_id: number_id,
-          id_gender: id_gender,
-          id_demographic: id_demographic,
+          id_document_type,
+          number_id,
+          id_gender,
+          id_demographic,
         });
-    
+
         res.status(201).json({
           success: true,
           message: "Usuario registrado con éxito",
@@ -125,9 +139,8 @@ async function startServer() {
         });
       }
     });
-    
-    
 
+    // Iniciar server
     app.listen(PORT, () => {
       console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
     });

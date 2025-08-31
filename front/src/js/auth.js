@@ -3,12 +3,16 @@ import CryptoJS from "crypto-js";
 
 // funcion para verificar si el usuario esta autenticado
 export function isAutenticated() {
-  return localStorage.getItem("auth_token") !== null || sessionStorage.getItem("auth_token") !== null;
+  return (
+    localStorage.getItem("auth_token") !== null ||
+    sessionStorage.getItem("auth_token") !== null
+  );
 }
 
 // funcion para obtener rol de usuario
 export function getUserRole() {
-  const authToken = localStorage.getItem("auth_token")  || sessionStorage.getItem("auth_token");;
+  const authToken =
+    localStorage.getItem("auth_token") || sessionStorage.getItem("auth_token");
   if (authToken) {
     try {
       const userData = JSON.parse(authToken);
@@ -47,12 +51,13 @@ export function updateAuthButtons() {
     const role = getUserRole();
     if (role === 1 && btnAdmin) btnAdmin.style.display = "inline";
     else if (role === 2 && btnTrainer) btnTrainer.style.display = "inline";
-    else if (role === 3 && btnContestant) btnContestant.style.display = "inline";
+    else if (role === 3 && btnContestant)
+      btnContestant.style.display = "inline";
   }
 }
 
 // funcion para logearnos
-export function login(user, pass, role,rememberMe= true) {
+export function login(user, pass, role, rememberMe = true) {
   const lStorage = rememberMe ? localStorage : sessionStorage;
   lStorage.setItem(
     "auth_token",
@@ -68,15 +73,16 @@ export function login(user, pass, role,rememberMe= true) {
 // funcion para cerrar sesión
 export function logout() {
   localStorage.removeItem("auth_token");
-  sessionStorage.removeItem("auth_token")
+  sessionStorage.removeItem("auth_token");
   updateAuthButtons();
-   window.location.hash = "#";
+  window.location.hash = "#";
 }
 
 // funcion para validar credenciales del logeo
-export function validateCredentials(user, pass, userApi) {
+export function validateCredentials(user, pass) {
   const username = user.trim();
   const password = pass.trim();
+
   // validar si los campos estan vacios:
   if (!username && !password) {
     alert("por favor ingrese usuario y contraseña");
@@ -92,19 +98,7 @@ export function validateCredentials(user, pass, userApi) {
     alert("por favor ingrese password");
     return false;
   }
-  // validar si usuario ingresado esta registrado
-  if (username.toLowerCase() !== userApi.username.toLowerCase()) {
-    alert("Usuario invalido - no registrado");
-    return false;
-  }
-
-  const decryptedPass = decryptPassword(userApi.password);
-  // validar si password ingresada es valida
-  if (password !== decryptedPass) {
-    alert("Contraseña incorrecta");
-    return false;
-  }
-  // si pasa todas las validaciones
+  // si los campos están llenos, pasa todas las validaciones
   return true;
 }
 

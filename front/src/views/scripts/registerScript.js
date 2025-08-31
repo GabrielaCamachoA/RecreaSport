@@ -25,7 +25,7 @@ export default function registerScript() {
   // Funciones para obtener los datos de catálogo de la base de datos
   async function fetchDocumentTypes() {
     try {
-      const response = await fetch("http://localhost:5000/api/document-types");
+      const response = await fetch("http://localhost:5000/api/documentTypes");
       const result = await response.json();
       if (response.ok) {
         populateSelect("document", result.data, "id_document_type", "codename");
@@ -123,11 +123,14 @@ export default function registerScript() {
         id_demographic: data.id_demographic,
       };
 
-      const userResponse = await fetch("http://localhost:5000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userPayload),
-      });
+      const userResponse = await fetch(
+        "http://localhost:5000/api/users/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userPayload),
+        }
+      );
 
       const userResult = await userResponse.json();
       if (!userResponse.ok) throw new Error(userResult.message);

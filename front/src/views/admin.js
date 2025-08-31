@@ -18,8 +18,8 @@ export default function Admin() {
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Data 1</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
+                        <h5 class="card-title">Total Inscripciones</h5>
+                        <p class="card-text"><span id="total-inscriptions">Cargando...</span></p>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@ export default function Admin() {
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Data 2</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
+                        <h5 class="card-title">Aprobadas</h5>
+                        <p class="card-text"><span id="approved-inscriptions">Cargando...</span></p>
                     </div>
                 </div>
             </div>
@@ -36,8 +36,8 @@ export default function Admin() {
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Data 3</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
+                        <h5 class="card-title">Pendientes</h5>
+                        <p class="card-text"><span id="pending-inscriptions">Cargando...</span></p>
                     </div>
                 </div>
             </div>

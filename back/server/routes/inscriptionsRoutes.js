@@ -4,13 +4,15 @@ import {
   createInscription,
   getInscriptionById,
   updateInscriptionStatus,
+  getInscriptionsCount,
 } from "../controllers/inscriptionsController.js";
 
 const router = Router();
 
-router.get("/inscriptions", getAllInscriptions);
-router.get("/inscriptions/:id", getInscriptionById);
-router.post("/inscriptions", createInscription);
-router.put("/inscriptions/:id/status", updateInscriptionStatus);
+router.get("/count", getInscriptionsCount);
+router.get("/all", getAllInscriptions);
+router.get("/:id", getInscriptionById);
+router.post("/", createInscription);
+router.put("/:id/status", updateInscriptionStatus);
 
 export default router;

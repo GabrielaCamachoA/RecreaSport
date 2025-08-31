@@ -75,3 +75,19 @@ export async function updateInscriptionStatus(req, res) {
     });
   }
 }
+
+export async function getInscriptionsCount(req, res) {
+  try {
+    const counts = await inscriptionsService.getInscriptionsCount();
+    res.status(200).json({
+      success: true,
+      data: counts,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener el conteo de inscripciones",
+      error: error.message,
+    });
+  }
+}

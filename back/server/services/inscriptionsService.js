@@ -13,25 +13,34 @@ async function getAllInscriptions() {
     include: [
       {
         model: Neighborhoods,
+        as: "neighborhood",
         attributes: ["name"],
       },
       {
         model: Contestants,
+        as: "contestant",
         include: {
           model: Users,
+          as: "user",
           attributes: ["name", "surname", "number_id"],
         },
       },
       {
         model: Sports,
+        as: "sport",
         attributes: ["name", "codename"],
         include: [
           {
             model: Trainers,
-            include: { model: Users, attributes: ["name"] },
+            as: "trainer",
+            include: { model: Users, as: "user", attributes: ["name"] },
           },
-          { model: Venues, attributes: ["name", "address"] },
-          { model: Schedules, attributes: ["day_of_week", "start_time"] },
+          { model: Venues, as: "venue", attributes: ["name", "address"] },
+          {
+            model: Schedules,
+            as: "schedule",
+            attributes: ["start_date", "end_date"], // ¡Usa los campos correctos!
+          },
         ],
       },
     ],
@@ -50,12 +59,13 @@ async function createInscription(inscriptionData) {
 async function getInscriptionById(id) {
   const inscription = await Inscriptions.findByPk(id, {
     include: [
-      { model: Neighborhoods, attributes: ["name"] },
+      { model: Neighborhoods, as: "neighborhood", attributes: ["name"] },
       {
         model: Contestants,
-        include: { model: Users, attributes: ["name", "surname"] },
+        as: "contestant",
+        include: { model: Users, as: "user", attributes: ["name", "surname"] },
       },
-      { model: Sports, attributes: ["name"] },
+      { model: Sports, as: "sport", attributes: ["name"] },
     ],
   });
   if (!inscription) {
@@ -78,10 +88,32 @@ async function updateInscriptionStatus(id, newStatus) {
   return inscription;
 }
 
+// obtener conteo de inscripciones
+export async function getInscriptionsCount() {
+  const totalCount = await Inscriptions.count();
+  const approvedCount = await Inscriptions.count({
+    where: {
+      status: "Aceptada",
+    },
+  });
+  const pendingCount = await Inscriptions.count({
+    where: {
+      status: "Pendiente",
+    },
+  });
+
+  return {
+    total: totalCount,
+    approved: approvedCount,
+    pending: pendingCount,
+  };
+}
+
 // Exporta las funciones para que el controlador pueda usarlas.
 export const inscriptionsService = {
   getAllInscriptions,
   createInscription,
   getInscriptionById,
   updateInscriptionStatus,
+  getInscriptionsCount,
 };

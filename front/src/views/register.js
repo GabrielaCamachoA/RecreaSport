@@ -23,7 +23,7 @@ export default function Register() {
             type="text" 
             class="form-control" 
             id="first_name" 
-            name="first_name" 
+            name="username" 
             required 
           />
         </div>
@@ -34,7 +34,7 @@ export default function Register() {
             type="text" 
             class="form-control" 
             id="last_name" 
-            name="last_name" 
+            name="surname" 
             required 
           />
   <section class="container-register">
@@ -79,18 +79,18 @@ export default function Register() {
         </div>
             <div class="mb-3">
               <label for="age" class="form-label">Fecha de Nacimiento *</label>
-              <input type="date" class="form-control" id="age" required />
+              <input type="date" class="form-control" id="age" name="at_birthday" required />
             </div>
           </div>
 
           <div class="input-row">
             <div class="mb-3">
               <label for="id_number" class="form-label">Número de Documento *</label>
-              <input type="text" class="form-control" id="id_number" required />
+              <input type="text" class="form-control" id="id_number" name="number_id" required />
             </div>
             <div class="mb-3">
               <label for="document" class="form-label">Tipo de Documento *</label>
-              <select class="form-select" required>
+              <select class="form-select" name="id_document_type" required>
                 <option selected>Selecciona</option>
                 <option value="1">CC</option>
                 <option value="2">TI</option>
@@ -102,12 +102,12 @@ export default function Register() {
 
           <div class="mb-3">
             <label for="tel" class="form-label">Teléfono *</label>
-            <input type="tel" class="form-control" id="tel" required />
+            <input type="tel" class="form-control" id="tel" name="phone" required />
           </div>
 
           <div class="mb-3">
             <label for="gender" class="form-label">Género *</label>
-            <select class="form-select" id="gender" required>
+            <select class="form-select" id="gender" name="id_gender" required>
               <option selected>Selecciona</option>
               <option value="1">Femenino</option>
               <option value="2">Masculino</option>
@@ -122,11 +122,11 @@ export default function Register() {
         <div class="step" id="step2" style="display:none;">
           <div class="mb-3">
             <label for="address" class="form-label">Dirección *</label>
-            <input type="text" class="form-control" id="address" required />
+            <input type="text" class="form-control" id="address" name="address" required />
           </div>
           <div class="mb-3">
             <label for="neighborhood" class="form-label">Barrio *</label>
-            <select class="form-select" required>
+            <select class="form-select" name="id_neighborhood" required>
               <option selected>Selecciona</option>
               <option value="1">20 DE JULIO</option>
               <option value="2">VILLA DE SAN PABLO</option>
@@ -135,7 +135,7 @@ export default function Register() {
           </div>
           <div class="mb-3">
             <label for="locality" class="form-label">Localidad *</label>
-            <select class="form-select" required>
+            <select class="form-select" name="id_demographic" required>
               <option selected>Selecciona</option>
               <option value="1">Metropolitana</option>
               <option value="2">Suroccidente</option>

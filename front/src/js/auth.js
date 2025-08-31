@@ -37,20 +37,7 @@ export function updateAuthButtons() {
   if (btnAdmin) btnAdmin.style.display = "none";
   if (btnTrainer) btnTrainer.style.display = "none";
   if (btnContestant) btnContestant.style.display = "none";
-  const btnLogin = document.getElementById("btnLogin");
-  const btnRegister = document.getElementById("btnRegister");
-  const btnLogout = document.getElementById("btnLogout");
-  const btnAdmin = document.getElementById("btnAdmin");
-  const btnTrainer = document.getElementById("btnTrainer");
-  const btnContestant = document.getElementById("btnContestant");
 
-  // ocultar todo por defecto
-  if (btnLogin) btnLogin.style.display = "inline";
-  if (btnLogout) btnLogout.style.display = "none";
-  if (btnRegister) btnRegister.style.display = "inline";
-  if (btnAdmin) btnAdmin.style.display = "none";
-  if (btnTrainer) btnTrainer.style.display = "none";
-  if (btnContestant) btnContestant.style.display = "none";
 
   if (isAutenticated()) {
     // ocultar login, mostrar logout

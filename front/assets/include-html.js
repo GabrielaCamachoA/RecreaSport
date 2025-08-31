@@ -1,13 +1,13 @@
 /**
- *  libreria para incluir  html de manera dinamica en mi index
+ *  library to dynamically include HTML in my index
  */
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // seleccionamos todos los elementos del DOM que contengan el atributo; data-include
+  // select all DOM elements that contain the data-include attribute.
   const $elements = document.querySelectorAll("[data-include]");
-  // contador de elementos que ya fueron procesados exitosamente o con error
+  // counter of items that have been successfully processed or processed with an error
   let loadedCount = 0;
-  // total de elementos que tienen el atributo data-include en el DOM
+  //total number of elements that have the data-include attribute in the DOM
   const total = $elements.length;
 
   if (total === 0) {
@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   /**
  
- * iteramos sobre cada elemento de manera ascincrona para hacer la consulta fetch con async y await
- * variables:
- * - urlConsulta: viene en data-include de mis elemetos
- * - resConsulta: es un archivo con formato HTML
- * - html: valor de resConsulta el cual se convierte a texto
+ * We iterate over each element asynchronously to perform the fetch query with async and await.
+ * Variables:
+ * - urlQuery: comes in data-include from my elements.
+ * - queryResult: is a file in HTML format.
+ * - html: value of queryResult which is converted to text.
  */
 
   $elements.forEach(async (el) => {

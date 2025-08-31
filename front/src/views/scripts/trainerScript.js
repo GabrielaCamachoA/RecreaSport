@@ -5,40 +5,40 @@ export default async function TrainerScript() {
     const request = await fetch("http://localhost:5000/api/users");
     const data = await request.json();
 
-    console.log(data); // Verifica la estructura del objeto
+    console.log(data); // Verify the structure of the object
 
-    // Asegurémonos de que 'data' sea un array antes de usar forEach
+    // Let's make sure that ‘data’ is an array before using forEach.
     if (Array.isArray(data.data)) {
-      // Usamos `data.data` porque parece que los usuarios están dentro de esta propiedad
+      // We use `data.data` because it appears that users are within this property.
       const tableBody = document.getElementById("Table-users");
-      tableBody.innerHTML = ""; // Limpiar contenido existente
+      tableBody.innerHTML = ""; // Clear existing content
 
       data.data.forEach((usuarios) => {
-        // Iteramos sobre el arreglo de usuarios
+        // We iterate over the user array
 
         if (usuarios.id_rol == "3") {
           const row = document.createElement("tr");
 
           const nameCell = document.createElement("td");
           nameCell.textContent =
-            usuarios.name + " " + usuarios.surname || "No disponible"; // Evitar errores si falta el nombre
+            usuarios.name + " " + usuarios.surname || "No disponible"; // Avoid errors if the name is missing
           row.appendChild(nameCell);
 
           const contactCell = document.createElement("td");
-          contactCell.textContent = usuarios.phone || "No disponible"; // Evitar errores si falta el contacto
+          contactCell.textContent = usuarios.phone || "No disponible"; // Avoid errors if contact is missing
           row.appendChild(contactCell);
 
           const ageCell = document.createElement("td");
 
-          // Obtener la fecha de nacimiento
+          // Obtain the date of birth
           const birthDate = new Date(usuarios.at_birthday);
 
-          // Calcular la edad
+          // Calculate age
           const currentDate = new Date();
           let age = currentDate.getFullYear() - birthDate.getFullYear();
           const monthDifference = currentDate.getMonth() - birthDate.getMonth();
 
-          // Ajustar la edad si no ha cumplido años este año
+          // Adjust the age if you have not had a birthday this year.
           if (
             monthDifference < 0 ||
             (monthDifference === 0 &&
@@ -47,11 +47,11 @@ export default async function TrainerScript() {
             age--;
           }
 
-          ageCell.textContent = age; // Asignar la edad calculada al texto de la celda
+          ageCell.textContent = age; // Assign the calculated age to the cell text
           row.appendChild(ageCell);
 
           const attendanceRateCell = document.createElement("td");
-          attendanceRateCell.textContent = usuarios.attendanceRate || "N/A"; // Mostrar N/A si falta tasa de asistencia
+          attendanceRateCell.textContent = usuarios.attendanceRate || "N/A"; // Display N/A if attendance rate is missing
           row.appendChild(attendanceRateCell);
 
           tableBody.appendChild(row);

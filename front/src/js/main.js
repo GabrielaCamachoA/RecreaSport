@@ -1,22 +1,22 @@
-// importamos funcion router
+// import function router
 import { router } from "../routes/router";
 import { logout } from "./auth";
 import contestantScript from "../views/scripts/contestantScript";
 
 document.addEventListener("includes-loaded", () => {
-  // ejecutamos router inicialmente
+  // we initially run the router
   router();
 
   // Initialize event delegation for Contestant tabs once
   contestantScript();
 
-  // interceptamos clicks internos de pagina
+  // we intercept internal page clicks
   document.addEventListener("click", (e) => {
-  // interceptar solo links internos con data-link
+  // intercept only internal links with data-link
   if (e.target.matches("a[data-link]")) {
     e.preventDefault();
 
-    // caso especial: Logout
+    // special case: Logout
     if (e.target.id === "btnLogout") {
       logout();
     }
@@ -25,7 +25,7 @@ document.addEventListener("includes-loaded", () => {
     router();
   }
 });
-  // manejo de navegacion con botones de atras/adelante
+  // navigation using back/forward buttons
   window.addEventListener("popstate", router);
 
   const generalContainer = document.querySelector(".general-container");
@@ -55,6 +55,6 @@ function initNavScroll() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Esperar un poco a que se cargue el include
+  // Wait a moment for the include to load.
   setTimeout(initNavScroll, 300);
 });

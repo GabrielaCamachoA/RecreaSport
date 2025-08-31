@@ -32,20 +32,20 @@ export default function registerScript() {
     document.getElementById(`step${currentStep}`).style.display = "block";
   });
 
-  // Envío final
+  // Final shipment
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    // Mapeo para que coincida con lo que espera el backend
+    // mapping to match what the backend expects
     const payload = {
       name: data.username,
       surname: data.surname,
       phone: data.phone,
       at_birthday: data.at_birthday,
-      id_rol: 3, // puedes definir un valor por defecto
+      id_rol: 3, // you can set a default value
       id_document_type: data.id_document_type,
       number_id: data.number_id,
       id_gender: data.id_gender,
@@ -67,7 +67,7 @@ export default function registerScript() {
         alert("✅ Registro exitoso");
         console.log("Respuesta del servidor:", result);
         form.reset();
-        // Redireccionar o mostrar mensaje
+        // Redirect or display message
       } else {
         alert(`❌ Error: ${result.message}`);
         console.error(result);

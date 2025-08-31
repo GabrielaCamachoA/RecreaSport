@@ -6,30 +6,30 @@ export default function contactScript() {
 
   if (btnForm) {
     btnForm.addEventListener("click", function () {
-      // Validación simple
+      // Simple validation
       if (!email.value.trim() || !name.value.trim() || !message.value.trim()) {
         Toastify({
           text: "Por favor, completa todos los campos.",
           duration: 3000,
           gravity: "bottom",
           position: "right",
-          backgroundColor: "#e53935", // rojo
+          backgroundColor: "#e53935", 
           close: true,
         }).showToast();
         return;
       }
 
-      // Si todo está lleno, mostrar mensaje de éxito
+      // If everything is full, display success message
       Toastify({
         text: "¡Mensaje enviado con éxito!",
         duration: 3000,
         gravity: "bottom",
         position: "right",
-        backgroundColor: "#4CAF50", // verde
+        backgroundColor: "#4CAF50", 
         close: true,
       }).showToast();
 
-      // Resetear formulario si deseas
+      // Reset form
       email.value = "";
       name.value = "";
       message.value = "";

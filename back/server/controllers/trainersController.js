@@ -1,6 +1,6 @@
 import { trainersService } from "../services/trainersService.js";
 
-// Controlador para obtener todos los entrenadores.
+// Controller to obtain all trainers.
 export async function getAllTrainers(req, res) {
   try {
     const trainers = await trainersService.getAllTrainers();
@@ -18,7 +18,7 @@ export async function getAllTrainers(req, res) {
   }
 }
 
-// Controlador para obtener un entrenador por ID.
+// Controller for obtaining a trainer by ID.
 export async function getTrainerById(req, res) {
   const { id } = req.params;
   try {
@@ -35,7 +35,7 @@ export async function getTrainerById(req, res) {
   }
 }
 
-// Controlador para crear un nuevo entrenador.
+// Controller for creating a new coach.
 export async function createTrainer(req, res) {
   const { userId } = req.body;
   try {

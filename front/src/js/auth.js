@@ -1,12 +1,13 @@
-// importamos libreria crypto para encriptar password
+// import the crypto library to encrypt passwords.
 import CryptoJS from "crypto-js";
 
-// funcion para verificar si el usuario esta autenticado
+
+// function to verify if the user is authenticated
 export function isAutenticated() {
   return localStorage.getItem("auth_token") !== null || sessionStorage.getItem("auth_token") !== null;
 }
 
-// funcion para obtener rol de usuario
+// function to obtain user role
 export function getUserRole() {
   const authToken = localStorage.getItem("auth_token")  || sessionStorage.getItem("auth_token");;
   if (authToken) {
@@ -30,7 +31,7 @@ export function updateAuthButtons() {
   const btnTrainer = document.getElementById("btnTrainer");
   const btnContestant = document.getElementById("btnContestant");
 
-  // ocultar todo por defecto
+    // hide everything by default
   if (btnLogin) btnLogin.style.display = "inline";
   if (btnLogout) btnLogout.style.display = "none";
   if (btnRegister) btnRegister.style.display = "inline";
@@ -40,20 +41,20 @@ export function updateAuthButtons() {
 
 
   if (isAutenticated()) {
-    // ocultar login, mostrar logout
+        // hide login, show logout
     if (btnLogin) btnLogin.style.display = "none";
     if (btnRegister) btnRegister.style.display = "none";
     if (btnLogout) btnLogout.style.display = "inline";
 
-    // mostrar solo el botón de la vista según rol
     const role = getUserRole();
+        // show only the view button according to role
     if (role === 1 && btnAdmin) btnAdmin.style.display = "inline";
     else if (role === 2 && btnTrainer) btnTrainer.style.display = "inline";
     else if (role === 3 && btnContestant) btnContestant.style.display = "inline";
   }
 }
 
-// funcion para logearnos
+// function to log in
 export function login(user, pass, role,rememberMe= true) {
   const lStorage = rememberMe ? localStorage : sessionStorage;
   lStorage.setItem(
@@ -68,7 +69,7 @@ export function login(user, pass, role,rememberMe= true) {
   updateAuthButtons();
 }
 
-// funcion para cerrar sesión
+// function to log out
 export function logout() {
   localStorage.removeItem("auth_token");
   sessionStorage.removeItem("auth_token")
@@ -76,31 +77,31 @@ export function logout() {
    window.location.hash = "#";
 }
 
-// funcion para validar credenciales del logeo
+// function to validate login credentials
 export function validateCredentials(user, pass) {
   const username = user.trim();
   const password = pass.trim();
 
-  // validar si los campos estan vacios:
+    // validate if the fields are empty:
   if (!username && !password) {
     alert("por favor ingrese usuario y contraseña");
     return false;
   }
-  // validar si el nombre esta vacio
+  // validate if the name is empty
   if (!username) {
     alert("por favor ingrese usuario");
     return false;
   }
-  // validar si el password esta vacio
+  // validate if the password is empty
   if (!password) {
     alert("por favor ingrese password");
     return false;
   }
-  // si los campos están llenos, pasa todas las validaciones
+  // if the fields are filled in, pass all validations
   return true;
 }
 
-// funcion para validar credenciales de la creacion
+// Function to validate credentials for creation
 export function validateCredCreate(username, name, telefono, rol, pass) {
   if (!username && !name && !telefono && !rol && !pass) {
     alert("Debe ingresar datos en el formulario, esta vacio.");
@@ -129,26 +130,26 @@ export function validateCredCreate(username, name, telefono, rol, pass) {
     alert("el pass esta vacio.");
     return false;
   }
-  // si pasa todas las validaciones retornamos true
+  // if it passes all validations, we return true
   return true;
 }
 
-// funcion para hashear nuestra password con algoritmo SHA-256 y libreria crypto
+// function to hash our password with the SHA-256 algorithm and crypto library
 export function hashPassword(password) {
   const clave = "Clavesecreta123";
-  // ciframos el mensaje utilizando AES
+  // we encrypt the message using AES
   const passCifrada = CryptoJS.AES.encrypt(password, clave).toString();
   return passCifrada;
 }
 
-// funcion para des-hashear password para validar en inicio de sesion
+// function to unhash password for login validation
 export function decryptPassword(passHashed) {
   const clave = "Clavesecreta123";
   const passDecrypt = CryptoJS.AES.decrypt(passHashed, clave);
   return passDecrypt.toString(CryptoJS.enc.Utf8);
 }
 
-// validar si la ruta es protegida
+// validate whether the path is protected
 export function validateGuardedPath(path) {
   switch (path) {
     case "/":

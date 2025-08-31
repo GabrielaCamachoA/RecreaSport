@@ -1,6 +1,6 @@
 import { venuesService } from "../services/venuesService.js";
 
-// Controlador para obtener todos los lugares
+// Controller to obtain all locations
 export async function getAllVenues(req, res) {
   try {
     const venues = await venuesService.getAllVenues();
@@ -18,7 +18,7 @@ export async function getAllVenues(req, res) {
   }
 }
 
-// Controlador para obtener un lugar por ID
+// Controller to obtain a place by ID
 export async function getVenueById(req, res) {
   const { id } = req.params;
   try {
@@ -35,7 +35,7 @@ export async function getVenueById(req, res) {
   }
 }
 
-// Controlador para crear un nuevo lugar
+// Controller for creating a new location
 export async function createVenue(req, res) {
   const venueData = req.body;
   try {
@@ -54,7 +54,7 @@ export async function createVenue(req, res) {
   }
 }
 
-// Controlador para actualizar un lugar
+//Controller for updating a location
 export async function updateVenue(req, res) {
   const { id } = req.params;
   const updatedData = req.body;
@@ -73,7 +73,7 @@ export async function updateVenue(req, res) {
   }
 }
 
-// Controlador para eliminar un lugar
+// Controller to delete a location
 export async function deleteVenue(req, res) {
   const { id } = req.params;
   try {

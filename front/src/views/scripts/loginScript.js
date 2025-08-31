@@ -24,21 +24,21 @@ export default function loginScript() {
         return;
       }
 
-      // Guardar usuario en localStorage o sessionStorage
+      // Save user in localStorage or sessionStorage
      login(data.user.username, password, data.user.role, rememberMe, window.location.pathname)
       updateAuthButtons();
 
-      // Redirige según rol
+      // redirect according to role
       Toastify({
   text: "¡Ingreso exitoso!",
-  duration: 3000, // toast visible por 3 segundos
+  duration: 3000, // toast visible for 3 seconds
   gravity: "bottom",
   position: "right",
   backgroundColor: "#4CAF50",
   close: true,
 }).showToast();
 
-// Redirigir después de 3 segundos (3000 ms)
+// Redirect after 3 seconds (3000 ms)
 setTimeout(() => {
   if (data.user.role === 1) {
     window.location = "http://localhost:5173/admin";

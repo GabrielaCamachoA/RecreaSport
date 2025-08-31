@@ -1,6 +1,6 @@
 import { schedulesService } from "../services/schedulesService.js";
 
-// Controlador para obtener todos los horarios
+// Controller to obtain all schedules
 export async function getAllSchedules(req, res) {
   try {
     const schedules = await schedulesService.getAllSchedules();
@@ -18,7 +18,7 @@ export async function getAllSchedules(req, res) {
   }
 }
 
-// Controlador para obtener un horario por ID
+// Controller to obtain a schedule by ID
 export async function getScheduleById(req, res) {
   const { id } = req.params;
   try {
@@ -35,7 +35,7 @@ export async function getScheduleById(req, res) {
   }
 }
 
-// Controlador para crear un nuevo horario
+// Controller for creating a new schedule
 export async function createSchedule(req, res) {
   const scheduleData = req.body;
   try {
@@ -54,7 +54,7 @@ export async function createSchedule(req, res) {
   }
 }
 
-// Controlador para actualizar un horario
+// Controller for updating a schedule
 export async function updateSchedule(req, res) {
   const { id } = req.params;
   const updatedData = req.body;
@@ -76,7 +76,7 @@ export async function updateSchedule(req, res) {
   }
 }
 
-// Controlador para eliminar un horario
+// Controller for deleting a schedule
 export async function deleteSchedule(req, res) {
   const { id } = req.params;
   try {

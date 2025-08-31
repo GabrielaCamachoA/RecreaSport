@@ -1,6 +1,6 @@
 import { contestantsService } from "../services/contestantsService.js";
 
-// Controlador para crear un concursante
+// Controller for creating a contestant
 export async function createContestant(req, res) {
   const { userId } = req.body;
   try {
@@ -19,7 +19,7 @@ export async function createContestant(req, res) {
   }
 }
 
-// Controlador para obtener todos los concursantes
+// Controller to obtain all contestants
 export async function getAllContestants(req, res) {
   try {
     const contestants = await contestantsService.getAllContestants();
@@ -37,7 +37,7 @@ export async function getAllContestants(req, res) {
   }
 }
 
-// Controlador para obtener un concursante por su ID
+// Controller to obtain a contestant by their ID
 export async function getContestantById(req, res) {
   const { id } = req.params;
   try {

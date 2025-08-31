@@ -1,6 +1,6 @@
 import { sportsService } from "../services/sportsService.js";
 
-// Controlador para obtener todos los deportes.
+// Controller for obtain all sports.
 export async function getAllSports(req, res) {
   try {
     const sports = await sportsService.getAllSports();
@@ -18,7 +18,7 @@ export async function getAllSports(req, res) {
   }
 }
 
-// Controlador para obtener un deporte por ID.
+//  Controller for obtaining a sport by ID.
 export async function getSportById(req, res) {
   const { id } = req.params;
   try {
@@ -35,7 +35,7 @@ export async function getSportById(req, res) {
   }
 }
 
-// Controlador para crear un nuevo deporte.
+// Controller for creating a new sport.
 export async function createSport(req, res) {
   const sportData = req.body;
   try {

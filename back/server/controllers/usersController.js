@@ -1,6 +1,6 @@
 import { usersService } from "../services/usersService.js";
 
-// Controlador para obtener todos los usuarios
+// Controller to obtain all users
 export async function getAllUsers(req, res) {
   try {
     const users = await usersService.getUsers();
@@ -18,7 +18,7 @@ export async function getAllUsers(req, res) {
   }
 }
 
-// Controlador para el login de usuarios
+// Controller for user login
 export async function login(req, res) {
   const { username, password } = req.body;
   try {
@@ -36,7 +36,7 @@ export async function login(req, res) {
   }
 }
 
-// Controlador para el registro de usuarios
+// Controller for user registration
 export async function register(req, res) {
   const userData = req.body;
   try {

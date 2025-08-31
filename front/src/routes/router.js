@@ -1,4 +1,4 @@
-// importacion de vistas
+// importing views
 import Admin from "../views/admin.js";
 import NotFound from "../views/notFound.js";
 import { getUserRole, updateAuthButtons, validateGuardedPath } from "../js/auth.js";
@@ -14,7 +14,7 @@ import registerScript from "../views/scripts/registerScript.js";
 import Contact from "../views/contact.js";
 import contactScript from "../views/scripts/contactScript.js";
 
-// definicion de rutas disponibles en la aplicacion
+// definition of routes available in the application
 const routes = {
   "/": { view: Home},
   "/login": { view: login, script: loginScript},

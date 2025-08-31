@@ -1,6 +1,6 @@
 import { inscriptionsService } from "../services/inscriptionsService.js";
 
-// Controlador para obtener todas las inscripciones.
+//  Controller to obtain all registrations.
 export async function getAllInscriptions(req, res) {
   try {
     const inscriptions = await inscriptionsService.getAllInscriptions();
@@ -18,7 +18,7 @@ export async function getAllInscriptions(req, res) {
   }
 }
 
-// Controlador para crear una nueva inscripción.
+// Controller for creating a new enrollment.
 export async function createInscription(req, res) {
   const inscriptionData = req.body;
   try {
@@ -39,7 +39,7 @@ export async function createInscription(req, res) {
   }
 }
 
-// Controlador para obtener una inscripción por ID.
+// Controller for obtaining an ID registration.
 export async function getInscriptionById(req, res) {
   const { id } = req.params;
   try {
@@ -56,7 +56,7 @@ export async function getInscriptionById(req, res) {
   }
 }
 
-// Controlador para actualizar el estado de una inscripción.
+// Controller for updating the status of an enrollment.
 export async function updateInscriptionStatus(req, res) {
   const { id } = req.params;
   const { status } = req.body;

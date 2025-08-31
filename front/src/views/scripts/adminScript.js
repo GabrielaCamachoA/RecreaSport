@@ -39,7 +39,7 @@ export default function setupAdmin() {
   }
  
   
-  // ✅ Función para cargar usuarios
+  // ✅ Function to upload users
   async function loadUsersData() {
     try {
       console.log("Cargando datos de usuarios...");

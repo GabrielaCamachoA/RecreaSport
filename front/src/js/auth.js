@@ -13,6 +13,7 @@ export function getUserRole() {
     try {
       const userData = JSON.parse(authToken);
       return userData.role;
+      return userData.role;
     } catch (error) {
       console.error("Error obtener data del localStorage", error);
       return null;
@@ -22,6 +23,20 @@ export function getUserRole() {
 }
 
 export function updateAuthButtons() {
+  const btnLogin = document.getElementById("btnLogin");
+  const btnRegister = document.getElementById("btnRegister");
+  const btnLogout = document.getElementById("btnLogout");
+  const btnAdmin = document.getElementById("btnAdmin");
+  const btnTrainer = document.getElementById("btnTrainer");
+  const btnContestant = document.getElementById("btnContestant");
+
+  // ocultar todo por defecto
+  if (btnLogin) btnLogin.style.display = "inline";
+  if (btnLogout) btnLogout.style.display = "none";
+  if (btnRegister) btnRegister.style.display = "inline";
+  if (btnAdmin) btnAdmin.style.display = "none";
+  if (btnTrainer) btnTrainer.style.display = "none";
+  if (btnContestant) btnContestant.style.display = "none";
   const btnLogin = document.getElementById("btnLogin");
   const btnRegister = document.getElementById("btnRegister");
   const btnLogout = document.getElementById("btnLogout");
@@ -60,6 +75,7 @@ export function login(user, pass, role,rememberMe= true) {
       user,
       pass,
       role,
+      role,
     })
   );
   updateAuthButtons();
@@ -74,9 +90,10 @@ export function logout() {
 }
 
 // funcion para validar credenciales del logeo
-export function validateCredentials(user, pass, userApi) {
+export function validateCredentials(user, pass) {
   const username = user.trim();
   const password = pass.trim();
+
   // validar si los campos estan vacios:
   if (!username && !password) {
     alert("por favor ingrese usuario y contraseña");
@@ -92,19 +109,7 @@ export function validateCredentials(user, pass, userApi) {
     alert("por favor ingrese password");
     return false;
   }
-  // validar si usuario ingresado esta registrado
-  if (username.toLowerCase() !== userApi.username.toLowerCase()) {
-    alert("Usuario invalido - no registrado");
-    return false;
-  }
-
-  const decryptedPass = decryptPassword(userApi.password);
-  // validar si password ingresada es valida
-  if (password !== decryptedPass) {
-    alert("Contraseña incorrecta");
-    return false;
-  }
-  // si pasa todas las validaciones
+  // si los campos están llenos, pasa todas las validaciones
   return true;
 }
 
@@ -163,6 +168,11 @@ export function validateGuardedPath(path) {
       return false;
     case "/login":
       return false;
+    case "/admin":
+      return true;
+    case "/trainer":
+      return true;
+    case "/contestant":
     case "/admin":
       return true;
     case "/trainer":

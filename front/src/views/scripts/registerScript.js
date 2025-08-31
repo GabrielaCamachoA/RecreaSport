@@ -11,7 +11,11 @@ export default function registerScript() {
 
     for (let input of inputs) {
       if (!input.checkValidity()) {
-        alert(`Por favor llena correctamente el campo: ${input.placeholder || input.name}`);
+        alert(
+          `Por favor llena correctamente el campo: ${
+            input.placeholder || input.name
+          }`
+        );
         input.focus();
         return;
       }
@@ -37,20 +41,19 @@ export default function registerScript() {
 
     // Mapeo para que coincida con lo que espera el backend
     const payload = {
-      username: data.first_name,
-      surname: data.last_name,
+      name: data.username,
+      surname: data.surname,
       phone: data.phone,
-      at_birthday: data.birth_date,
-      attendanceRate: null, // puedes ajustarlo si lo necesitas
-      role: 3, // puedes definir un valor por defecto
-      id_document_type: data.document_type,
-      number_id: data.id_number,
-      id_gender: data.gender,
-      id_demographic: data.demografic,
+      at_birthday: data.at_birthday,
+      id_rol: 3, // puedes definir un valor por defecto
+      id_document_type: data.id_document_type,
+      number_id: data.number_id,
+      id_gender: data.id_gender,
+      id_demographic: data.id_demographic,
     };
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch("http://localhost:5000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

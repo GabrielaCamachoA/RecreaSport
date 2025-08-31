@@ -2,7 +2,7 @@ import { contestantsService } from "../services/contestantsService.js";
 
 // Controlador para crear un concursante
 export async function createContestant(req, res) {
-  const { userId } = req.body;
+  const userId = req.body.userId;
   try {
     const newContestant = await contestantsService.createContestant(userId);
     res.status(201).json({

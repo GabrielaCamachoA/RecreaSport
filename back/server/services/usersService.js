@@ -24,7 +24,12 @@ async function loginUser(username, password) {
 // Servicio para registrar un nuevo usuario
 async function registerUser(userData) {
   const newUser = await Users.create(userData);
-  return newUser;
+  // Se añade esta validación para que siempre devuelva el ID correcto
+  if (newUser && newUser.id_user) {
+    return newUser; // El objeto de Sequelize ya incluye las propiedades del modelo.
+  } else {
+    throw new Error("No se pudo obtener el ID del usuario recién creado.");
+  }
 }
 
 // Servicio para obtener todos los usuarios

@@ -9,10 +9,6 @@ FROM users
 WHERE id_rol = 2;
 
 
--- Ejemplo de inserción para un 'contestant'
-INSERT INTO Contestants (id_user)
-SELECT id_user
-FROM users
-WHERE id_rol = 3;
+
 
 

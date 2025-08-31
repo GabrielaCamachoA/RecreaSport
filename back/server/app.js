@@ -10,6 +10,9 @@ import trainersRoutes from "./routes/trainersRoutes.js";
 import inscriptionsRoutes from "./routes/inscriptionsRoutes.js";
 import schedulesRoutes from "./routes/schedulesRoutes.js";
 import venuesRoutes from "./routes/venuesRoutes.js";
+import documentTypesRoutes from "./routes/documentTypesRoutes.js";
+import neighborhoodsRoutes from "./routes/neighborhoodsRoutes.js";
+import gendersRoutes from "./routes/gendersRoutes.js";
 
 const PORT = 5000;
 const app = express();
@@ -31,6 +34,9 @@ app.use("/api", trainersRoutes);
 app.use("/api", inscriptionsRoutes);
 app.use("/api", schedulesRoutes);
 app.use("/api", venuesRoutes);
+app.use("/api", documentTypesRoutes);
+app.use("/api", neighborhoodsRoutes);
+app.use("/api", gendersRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor funcionando 🚀");

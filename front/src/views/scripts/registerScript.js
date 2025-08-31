@@ -41,11 +41,12 @@ export default function registerScript() {
 
     // Mapeo para que coincida con lo que espera el backend
     const payload = {
-      name: data.username,
+      username: data.username,
       surname: data.surname,
       phone: data.phone,
       at_birthday: data.at_birthday,
-      id_rol: 3, // puedes definir un valor por defecto
+      attendanceRate: null, // puedes ajustarlo si lo necesitas
+      role: 3, // puedes definir un valor por defecto
       id_document_type: data.id_document_type,
       number_id: data.number_id,
       id_gender: data.id_gender,
@@ -53,7 +54,7 @@ export default function registerScript() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/register", {
+      const response = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -37,45 +37,6 @@ export default function Register() {
             name="surname" 
             required 
           />
-  <section class="container-register">
-    <div class="register-wrapper">
-    <!-- Columna izquierda -->
-    <div class="register-left">
-      <h1>RecreaSport</h1>
-      <p>¿Ya tienes una cuenta?</p>
-      <p>Inicia sesión para continuar con tus actividades deportivas.</p>
-      <button class="btn-outline">Iniciar Sesión</button>
-    </div>
-
-    <!-- Columna derecha -->
-    <div class="register-right">
-      <h2>Únete al programa RecreaSport 2025</h2>
-      <p class="subtitle">Completa tus datos para iniciar tu registro</p>
-      
-      <form id="registroForm" class="registerForm">
-        <!-- Paso 1 -->
-        <div class="step" id="step1">
-          <div class="input-row">
-            <div class="mb-3">
-          <label for="first_name" class="form-label">Nombre *</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="first_name" 
-            name="first_name" 
-            required 
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="last_name" class="form-label">Apellido *</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            id="last_name" 
-            name="last_name" 
-            required 
-          />
         </div>
             <div class="mb-3">
               <label for="age" class="form-label">Fecha de Nacimiento *</label>

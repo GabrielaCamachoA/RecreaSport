@@ -37,12 +37,13 @@ export default function setupAdmin() {
       loadSubView(viewName);
     });
   }
-
+ 
+  
   // ✅ Función para cargar usuarios
   async function loadUsersData() {
     try {
       console.log("Cargando datos de usuarios...");
-      const response = await fetch("http://localhost:5000/api/users");
+      const response = await fetch("http://localhost:5000/users");
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

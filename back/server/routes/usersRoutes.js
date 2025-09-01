@@ -8,7 +8,7 @@ import {
 const router = Router();
 
 // Definir las rutas
-router.get("/users", getAllUsers);
+router.get("/", getAllUsers);
 router.post("/login", login);
 router.post("/register", register);
 

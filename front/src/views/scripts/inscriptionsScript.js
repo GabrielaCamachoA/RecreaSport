@@ -57,11 +57,11 @@ export default async function setupInscriptionsTable() {
 
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td>${id}</td>
-        <td>${userName}</td>
-        <td>${sportName}</td>
-        <td class="${statusClass}">${status}</td>
-        <td>
+        <td class="text-center">${id}</td>
+        <td class="text-center">${userName}</td>
+        <td class="text-center">${sportName}</td>
+        <td class="${statusClass}  text-center">${status}</td>
+        <td class="text-center">
           <button class="btn btn-success btn-sm me-2" data-id="${id}" data-action="accept">Aceptar</button>
           <button class="btn btn-danger btn-sm" data-id="${id}" data-action="reject">Rechazar</button>
         </td>

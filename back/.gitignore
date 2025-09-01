@@ -8,4 +8,4 @@
 package-lock.json
 
 # Ignorar la carpeta de datos, ya que estos datos se cargan desde los seeders
-/server/data
+#/server/data

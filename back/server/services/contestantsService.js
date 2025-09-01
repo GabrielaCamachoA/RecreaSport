@@ -44,6 +44,7 @@ async function getContestantByUserId(userId) {
     },
     include: {
       model: Users,
+      as: "user",
       attributes: ["name", "surname", "number_id"],
     },
   });

@@ -2,7 +2,12 @@
     padding: 20px;
 }
 .export-data{
-    background-color: rgb(20, 170, 20);
+    background-color: #037c25;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 12px;
+
 }
 
 .sub-navbar{
@@ -16,4 +21,61 @@
     background-color: white;
     color: black;
     height: 90%;
+}
+.card{
+    box-shadow: 1px 0px 7px 2px #1b324026;
+}
+.card-body{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-direction: column;
+}
+.card-body-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-body-img-1{
+    background-color: #1b3240;
+    color: #fff;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+.card-body-img-2{
+    background-color: #198754;
+    color: #fff;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+.card-body-img-3{
+    background-color: #E67E22;
+    color: #fff;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+.text-orange{
+    color: #E67E22;
+}
+.nav{
+    margin: 20px auto;
+}
+.nav a{
+    text-decoration: none;
+}
+.nav a:focus{
+    background-color: #e6f0ff;
+    color: #000;
+}
+.thead{
+    background-color: #1b3240;
+}
+.thead th{
+    color: #fff;
 }

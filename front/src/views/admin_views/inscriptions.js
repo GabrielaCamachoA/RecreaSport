@@ -4,11 +4,11 @@ export function inscripcionView() {
     <p class="text-muted text-center text-sm-start mb-4">Administra todas las inscripciones del programa.</p>
     <div class="table-responsive shadow-sm rounded">
       <table class="table table-hover align-middle mb-0" id="inscriptionsTable">
-        <thead class="bg-dark text-white">
+        <thead class="thead text-white">
           <tr>
             <th scope="col" class="border-0 text-center">N° Inscripción</th>
-            <th scope="col" class="border-0">Nombre</th>
-            <th scope="col" class="border-0">Deporte</th>
+            <th scope="col" class="border-0 text-center">Nombre</th>
+            <th scope="col" class="border-0 text-center">Deporte</th>
             <th scope="col" class="border-0 text-center">Estado</th>
             <th scope="col" class="border-0 text-center">Acciones</th>
           </tr>

@@ -109,6 +109,20 @@ export async function getInscriptionsCount() {
   };
 }
 
+// Obtiene una inscripción por el ID del concursante.
+async function getInscriptionByContestantId(contestantId) {
+  const inscription = await Inscriptions.findOne({
+    where: {
+      id_contestants: contestantId,
+    },
+    include: [
+      { model: Neighborhoods, as: "neighborhood", attributes: ["name"] },
+      { model: Sports, as: "sport", attributes: ["name"] },
+    ],
+  });
+  return inscription;
+}
+
 // Exporta las funciones para que el controlador pueda usarlas.
 export const inscriptionsService = {
   getAllInscriptions,
@@ -116,4 +130,5 @@ export const inscriptionsService = {
   getInscriptionById,
   updateInscriptionStatus,
   getInscriptionsCount,
+  getInscriptionByContestantId,
 };

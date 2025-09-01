@@ -1,24 +1,33 @@
+// contestantScript.js (VERSIÓN FINAL CORREGIDA)
+
 export default function contestantScript() {
-  document.addEventListener("click", (e) => {
-    if (e.target.matches("#contestantTabs button")) {
-      const tab = e.target.dataset.tab.trim();
+  const loadContestantData = async () => {
+    try {
+      // 1. Obtener los datos del usuario logueado de sessionStorage.
+      const userData = JSON.parse(sessionStorage.getItem("auth_token"));
 
-      // Remove “active” from all buttons
-      document.querySelectorAll("#contestantTabs .nav-link").forEach(btn =>
-        btn.classList.remove("active")
-      );
+      if (!userData || !userData.id_contestants) {
+        throw new Error(
+          "ID de concursante no encontrado en el almacenamiento de sesión. Por favor, inicie sesión nuevamente."
+        );
+      }
 
-      // Hide all tabs content
-      document.querySelectorAll(".tab-content").forEach(tc =>
-        tc.classList.add("d-none")
-      );
+      const contestantId = userData.id_contestants;
+      const userName = userData.username; // <--- CAMBIO AQUÍ: Usamos 'username' en lugar de 'name'
 
-      // Activate the clicked button
-      e.target.classList.add("active");
-
-      // Show the corresponding content
-      document.querySelector(`#tab-${tab}`).classList.remove("d-none");
+      const userNameElement = document.getElementById("user-name");
+      if (userNameElement) {
+        userNameElement.textContent = userName;
+      }
+      // ... (resto del código)
+    } catch (error) {
+      console.error("Error al cargar los datos del concursante:", error);
+      const contentArea = document.getElementById("contestant-content-area");
+      if (contentArea) {
+        contentArea.innerHTML = `<p class="text-danger">Error: ${error.message}</p>`;
+      }
     }
-  });
-}
+  };
 
+  loadContestantData();
+}

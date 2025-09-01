@@ -53,3 +53,27 @@ export async function getContestantById(req, res) {
     });
   }
 }
+
+// Nuevo controlador para obtener un concursante por ID de usuario
+export async function getContestantByUserId(req, res) {
+  const { userId } = req.params;
+  try {
+    const contestant = await contestantsService.getContestantByUserId(userId);
+    if (!contestant) {
+      return res.status(404).json({
+        success: false,
+        message: "Concursante no encontrado para este usuario.",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      data: contestant,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener concursante por ID de usuario",
+      error: error.message,
+    });
+  }
+}

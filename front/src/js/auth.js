@@ -16,7 +16,7 @@ export function getUserRole() {
   if (authToken) {
     try {
       const userData = JSON.parse(authToken);
-      return userData.role;
+      return userData.role; // <-- Aquí se obtiene el rol
     } catch (error) {
       console.error("Error obtener data del localStorage", error);
       return null;
@@ -57,16 +57,12 @@ export function updateAuthButtons() {
 }
 
 // funcion para logearnos
-export function login(user, pass, role, rememberMe = true) {
+export function login(userObject, rememberMe = true) {
+  // `userObject` es el objeto completo 'data.user' de la respuesta de la API
   const lStorage = rememberMe ? localStorage : sessionStorage;
-  lStorage.setItem(
-    "auth_token",
-    JSON.stringify({
-      user,
-      pass,
-      role,
-    })
-  );
+
+  // Guardamos el objeto completo en el token
+  lStorage.setItem("auth_token", JSON.stringify(userObject));
   updateAuthButtons();
 }
 

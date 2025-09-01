@@ -1,4 +1,9 @@
+// loginScript.js (VERSIÓN FINAL Y CORREGIDA)
+
 import { login, updateAuthButtons } from "../../js/auth.js";
+
+// Ya no necesitamos esta función, la lógica se mueve al loginScript
+// async function fetchAndSaveContestantId(userId) { ... }
 
 export default function loginScript() {
   document
@@ -26,27 +31,40 @@ export default function loginScript() {
           return;
         }
 
-        // Guardar usuario en localStorage o sessionStorage
-        login(
-          data.user.username,
-          password,
-          data.user.role,
-          rememberMe,
-          window.location.pathname
-        );
+        // **NUEVA LÓGICA:** Se modifica el objeto 'data.user' ANTES de guardarlo.
+        if (data.user.role === 3) {
+          try {
+            const contestantResponse = await fetch(
+              `http://localhost:5000/api/contestants/byUser/${data.user.id_user}`
+            );
+            const contestantData = await contestantResponse.json();
+
+            if (contestantData.success && contestantData.data) {
+              // Añadimos el id_contestants al objeto 'user'
+              data.user.id_contestants = contestantData.data.id_contestant;
+            } else {
+              console.error("No se pudo encontrar el perfil de concursante.");
+            }
+          } catch (error) {
+            console.error("Error al obtener el ID del concursante:", error);
+          }
+        }
+
+        // Ahora, guardamos el objeto 'user' COMPLETO (con o sin el id_contestants)
+        login(data.user, rememberMe);
+
         updateAuthButtons();
 
         // Redirige según rol
         Toastify({
           text: "¡Ingreso exitoso!",
-          duration: 3000, // toast visible por 3 segundos
+          duration: 3000,
           gravity: "bottom",
           position: "right",
           backgroundColor: "#4CAF50",
           close: true,
         }).showToast();
 
-        // Redirigir después de 3 segundos (3000 ms)
         setTimeout(() => {
           if (data.user.role === 1) {
             window.location = "http://localhost:5173/admin";

@@ -1,6 +1,6 @@
 export default function Admin() {
   return `
-  <div class="container-fluid py-3 px-1 bg-light min-vh-100">
+  <div class="container-fluid min-vh-100 container-admin">
     
     <div class="row align-items-center mb-3">
         <div class="col-12 col-md-8">
@@ -8,7 +8,7 @@ export default function Admin() {
             <p class="small text-muted text-truncate">Gestión integral del programa <span class="fw-semibold">Deporte Recreativo 2025</span>.</p>
         </div>
         <div class="col-12 col-md-4 text-md-end mt-2 mt-md-0">
-            <button class="btn btn-primary btn-sm shadow-sm export-data w-100 w-sm-auto">
+            <button class="btn export-data">
                 <i class="bi bi-download me-1"></i> Exportar Datos
             </button>
         </div>

@@ -1,4 +1,6 @@
-
+.container-admin{
+    padding: 20px;
+}
 .export-data{
     background-color: rgb(20, 170, 20);
 }

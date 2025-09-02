@@ -62,7 +62,7 @@ const loadSubView = async (viewName) => {
 };
 
 export default function setupAdmin() {
-  const subNav = d.getElementById("admin-sub-nav");
+  const subNav = document.getElementById("admin-sub-nav");
   if (!subNav) return;
 
   // Usa un solo listener para manejar la navegación.
@@ -72,7 +72,7 @@ export default function setupAdmin() {
     if (!targetLink) return;
 
     // Remueve 'active' de todos los enlaces y lo agrega al actual.
-    d.querySelectorAll("#admin-sub-nav .nav-link").forEach((link) =>
+    document.querySelectorAll("#admin-sub-nav .nav-link").forEach((link) =>
       link.classList.remove("active")
     );
     targetLink.classList.add("active");
@@ -81,18 +81,6 @@ export default function setupAdmin() {
     loadSubView(targetLink.dataset.view);
   });
 
-<<<<<<< HEAD
-      d.querySelectorAll("#admin-sub-nav .nav-link").forEach((link) => {
-        link.classList.remove("active");
-      });
-      targetLink.classList.add("active");
-
-      const viewName = targetLink.dataset.view;
-      loadSubView(viewName);
-    });
-  }
- 
-  
   // ✅ Function to upload users
   async function loadUsersData() {
     try {
@@ -109,9 +97,6 @@ export default function setupAdmin() {
     }
   }
 
-  // default load iscripitons view
-=======
   // Carga la vista de "Inscripciones" por defecto al iniciar.
->>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
   loadSubView("inscriptions");
 }

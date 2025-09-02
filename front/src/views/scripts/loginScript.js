@@ -4,7 +4,6 @@ import { login, updateAuthButtons } from "../../js/auth.js";
 
 // Ya no necesitamos esta función, la lógica se mueve al loginScript
 // async function fetchAndSaveContestantId(userId) { ... }
-
 export default function loginScript() {
   document
     .getElementById("login-form")
@@ -31,7 +30,7 @@ export default function loginScript() {
           return;
         }
 
-        // **NUEVA LÓGICA:** Se modifica el objeto 'data.user' ANTES de guardarlo.
+        // Si el usuario es concursante (rol 3), obtenemos su perfil
         if (data.user.role === 3) {
           try {
             const contestantResponse = await fetch(
@@ -40,7 +39,6 @@ export default function loginScript() {
             const contestantData = await contestantResponse.json();
 
             if (contestantData.success && contestantData.data) {
-              // Añadimos el id_contestants al objeto 'user'
               data.user.id_contestants = contestantData.data.id_contestant;
             } else {
               console.error("No se pudo encontrar el perfil de concursante.");
@@ -50,12 +48,11 @@ export default function loginScript() {
           }
         }
 
-        // Ahora, guardamos el objeto 'user' COMPLETO (con o sin el id_contestants)
+        // Guardamos al usuario en sesión/localStorage
         login(data.user, rememberMe);
-
         updateAuthButtons();
 
-        // Redirige según rol
+        // Notificación
         Toastify({
           text: "¡Ingreso exitoso!",
           duration: 3000,
@@ -65,6 +62,7 @@ export default function loginScript() {
           close: true,
         }).showToast();
 
+        // Redirección por rol
         setTimeout(() => {
           if (data.user.role === 1) {
             window.location = "http://localhost:5173/admin";
@@ -80,45 +78,9 @@ export default function loginScript() {
         console.error("Error durante el login:", error);
         alert("Error de conexión con el servidor");
       }
-<<<<<<< HEAD
-
-      // Save user in localStorage or sessionStorage
-     login(data.user.username, password, data.user.role, rememberMe, window.location.pathname)
-      updateAuthButtons();
-
-      // redirect according to role
-      Toastify({
-  text: "¡Ingreso exitoso!",
-  duration: 3000, // toast visible for 3 seconds
-  gravity: "bottom",
-  position: "right",
-  backgroundColor: "#4CAF50",
-  close: true,
-}).showToast();
-
-// Redirect after 3 seconds (3000 ms)
-setTimeout(() => {
-  if (data.user.role === 1) {
-    window.location = "http://localhost:5173/admin";
-  } else if (data.user.role === 2) {
-    window.location = "http://localhost:5173/trainer";
-  } else if (data.user.role === 3) {
-    window.location = "http://localhost:5173/contestant";
-  } else {
-    window.location.hash = "#";
-  }
-}, 800);
-
-      
-    } catch (error) {
-      console.error("Error durante el login:", error);
-      alert("Error de conexión con el servidor");
-    }
-  });
-=======
     });
->>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
 
+  // 🔹 Botón de login con Google (por ahora no implementado)
   function loginWithGoogle() {
     alert("Google login no implementado aún.");
   }

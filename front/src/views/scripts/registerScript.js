@@ -107,7 +107,6 @@ export default function registerScript() {
     let userId;
     let contestantId;
 
-<<<<<<< HEAD
     // mapping to match what the backend expects
     const payload = {
       name: data.username,
@@ -121,60 +120,49 @@ export default function registerScript() {
       id_demographic: data.id_demographic,
     };
 
-=======
     // ==============================
-    // PASO 1: REGISTRO DEL USUARIO
-    // ==============================
->>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
-    try {
-      const userPayload = {
-        name: data.username,
-        surname: data.surname,
-        phone: data.phone,
-        at_birthday: data.at_birthday,
-        id_rol: 3,
-        id_document_type: data.id_document_type,
-        number_id: data.number_id,
-        id_gender: data.id_gender,
-        id_demographic: data.id_demographic,
-      };
+// PASO 1: REGISTRO DEL USUARIO
+// ==============================
+try {
+  const userPayload = {
+    name: data.username,
+    surname: data.surname,
+    phone: data.phone,
+    at_birthday: data.at_birthday,
+    id_rol: 3,
+    id_document_type: data.id_document_type,
+    number_id: data.number_id,
+    id_gender: data.id_gender,
+    id_demographic: data.id_demographic,
+  };
 
-      const userResponse = await fetch(
-        "http://localhost:5000/api/users/register",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(userPayload),
-        }
-      );
-
-<<<<<<< HEAD
-      if (response.ok) {
-        alert("✅ Registro exitoso");
-        console.log("Respuesta del servidor:", result);
-        form.reset();
-        // Redirect or display message
-      } else {
-        alert(`❌ Error: ${result.message}`);
-        console.error(result);
-=======
-      const userResult = await userResponse.json();
-      if (!userResponse.ok) throw new Error(userResult.message);
-
-      // La validación en el servicio ya garantiza que este ID esté presente
-      if (!userResult.user || !userResult.user.id_user) {
-        throw new Error("El ID del usuario no se pudo obtener del servidor.");
->>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
-      }
-
-      userId = userResult.user.id_user; // El cambio principal es aquí, usando 'id_user'
-
-      console.log("Usuario registrado con ID:", userId);
-    } catch (error) {
-      alert(`❌ Error en el registro de usuario: ${error.message}`);
-      console.error("Error en fetch de usuario:", error);
-      return;
+  const userResponse = await fetch(
+    "http://localhost:5000/api/users/register",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userPayload),
     }
+  );
+
+  const userResult = await userResponse.json();
+  if (!userResponse.ok) throw new Error(userResult.message);
+
+  // Validar ID de usuario
+  if (!userResult.user || !userResult.user.id_user) {
+    throw new Error("El ID del usuario no se pudo obtener del servidor.");
+  }
+
+  userId = userResult.user.id_user;
+  console.log("Usuario registrado con ID:", userId);
+
+} catch (error) {
+  alert(`❌ Error en el registro de usuario: ${error.message}`);
+  console.error("Error en fetch de usuario:", error);
+  return;
+}
+
+      
 
     // ==================================
     // PASO 2: CREACIÓN DEL CONCURSANTE

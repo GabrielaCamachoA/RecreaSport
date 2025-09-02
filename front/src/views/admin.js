@@ -1,74 +1,78 @@
 export default function Admin() {
   return `
-  
-  <div class="container-fluid px-4 py-4">
+  <div class="container-fluid min-vh-100 container-admin">
     
-        <div class="row mb-4">
-            <div class="col-12 d-flex justify-content-between align-items-center">
-                <div class="text-end">
-                    <h1>Panel Administrativo</h1>
-                    <p>Gestión integral del programa Deporte Recreativo 2025.</p>
-                </div>
-                <button class="btn export-data btn-success">Exportar Datos</button>
-            </div>
+    <div class="row align-items-center mb-3">
+        <div class="col-12 col-md-8">
+            <h1 class="h3 fw-bold text-dark mb-1 mb-sm-0 text-truncate">Panel Administrativo</h1>
+            <p class="small text-muted text-truncate">Gestión integral del programa <span class="fw-semibold">Deporte Recreativo 2025</span>.</p>
         </div>
-        
-        <div class="row mb-4 justify-content-center">
-            
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Data 1</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
+        <div class="col-12 col-md-4 text-md-end mt-2 mt-md-0">
+            <button class="export-data">
+                <i class="bi bi-download me-1"></i> Exportar Datos
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-2 mb-3">
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="card border-0 rounded-4 h-100">
+                <div class="card-body p-2">
+                    <div class="card-body-img-1">
+                       <i class="bi bi-people"></i>
                     </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Data 2</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Data 3</h5>
-                        <p class="card-text">Datos dinámicos aquí.</p>
+                    <div class="card-body-info">
+                        <h5 class="card-title text-muted text-uppercase fw-normal small mb-1">Total Inscripciones</h5>
+                        <h2 class="card-text h4 fw-bold text-dark" id="total-inscriptions">Cargando...</h2>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="w-50 mb-3 ">
-            <div class="col-12">
-                <div >
-                    <ul class="border sub-navbar rounded-pill nav p-1 gap-1 " id="admin-sub-nav">
-                        <li class="nav-item">
-                            <a class="mt-1 nav-link sub-navbar-link" data-view="inscriptions" href="#">Inscripciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="mt-1 mb-1 nav-link sub-navbar-link" data-view="reports" href="#">Reportes avanzados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="mt-1 mb-1 nav-link sub-navbar-link" data-view="users" href="#">Users</a>
-                        </li>
-                    </ul>
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="card border-0 rounded-4 h-100">
+                <div class="card-body p-2">
+                    <div class="card-body-img-2">
+                       <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <div class="card-body-info">
+                    <h5 class="card-title text-muted text-uppercase fw-normal small mb-1">Aprobadas</h5>
+                        <h2 class="card-text h4 fw-bold text-success" id="approved-inscriptions">Cargando...</h2>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="p-4 border rounded" id="admin-content-area">
-                    <p>Contenido principal del panel de administración (tablas, formularios, etc.).</p>
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="card border-0 rounded-4 h-100">
+                <div class="card-body p-2">
+                    <div class="card-body-img-3">
+                       <i class="bi bi-hourglass-split"></i>
+                    </div>
+                    <div class="card-body-info">
+                        <h5 class="card-title text-muted text-uppercase fw-normal small mb-1">Pendientes</h5>
+                        <h2 class="card-text h4 fw-bold text-orange" id="pending-inscriptions">Cargando...</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    
+    <div class="row mb-3">
+        <div class="col-12">
+            <nav class="nav flex-sm-row bg-white rounded-3 shadow-sm p-1" id="admin-sub-nav">
+                <a class="flex-sm-fill text-sm-center  py-1 px-2 small sub-navbar-link" data-view="inscriptions" href="#">Inscripciones</a>
+                <a class="flex-sm-fill text-sm-center py-1 px-2 small sub-navbar-link" data-view="reports" href="#">Reportes Avanzados</a>
+                <a class="flex-sm-fill text-sm-center  py-1 px-2 small sub-navbar-link" data-view="users" href="#">Usuarios</a>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 rounded-4 shadow-sm p-3 bg-white" id="admin-content-area">
+                <p class="text-muted fst-italic small">Contenido principal del panel de administración (tablas, formularios, etc.).</p>
+            </div>
+        </div>
+    </div>
+  </div>
   `;
 }

@@ -36,9 +36,25 @@ async function getContestantById(id) {
   return contestant;
 }
 
+// Servicio para obtener un concursante por su ID de usuario
+async function getContestantByUserId(userId) {
+  const contestant = await Contestants.findOne({
+    where: {
+      id_user: userId,
+    },
+    include: {
+      model: Users,
+      as: "user",
+      attributes: ["name", "surname", "number_id"],
+    },
+  });
+  return contestant;
+}
+
 // Exporta las funciones para que puedan ser utilizadas por el controlador
 export const contestantsService = {
   createContestant,
   getAllContestants,
   getContestantById,
+  getContestantByUserId,
 };

@@ -13,8 +13,12 @@ export function getUserRole() {
   if (authToken) {
     try {
       const userData = JSON.parse(authToken);
+<<<<<<< HEAD
       return userData.role;
       return userData.role;
+=======
+      return userData.role; // <-- Aquí se obtiene el rol
+>>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
     } catch (error) {
       console.error("Error obtener data del localStorage", error);
       return null;
@@ -54,6 +58,7 @@ export function updateAuthButtons() {
   }
 }
 
+<<<<<<< HEAD
 // function to log in
 export function login(user, pass, role,rememberMe= true) {
   const lStorage = rememberMe ? localStorage : sessionStorage;
@@ -66,6 +71,15 @@ export function login(user, pass, role,rememberMe= true) {
       role,
     })
   );
+=======
+// funcion para logearnos
+export function login(userObject, rememberMe = true) {
+  // `userObject` es el objeto completo 'data.user' de la respuesta de la API
+  const lStorage = rememberMe ? localStorage : sessionStorage;
+
+  // Guardamos el objeto completo en el token
+  lStorage.setItem("auth_token", JSON.stringify(userObject));
+>>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
   updateAuthButtons();
 }
 

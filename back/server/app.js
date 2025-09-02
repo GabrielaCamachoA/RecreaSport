@@ -10,6 +10,9 @@ import trainersRoutes from "./routes/trainersRoutes.js";
 import inscriptionsRoutes from "./routes/inscriptionsRoutes.js";
 import schedulesRoutes from "./routes/schedulesRoutes.js";
 import venuesRoutes from "./routes/venuesRoutes.js";
+import documentTypesRoutes from "./routes/documentTypesRoutes.js";
+import neighborhoodsRoutes from "./routes/neighborhoodsRoutes.js";
+import gendersRoutes from "./routes/gendersRoutes.js";
 
 const PORT = 5000;
 const app = express();
@@ -24,13 +27,16 @@ app.use(
 );
 
 // Usar el enrutador
-app.use("/api", usersRoutes);
-app.use("/api", contestantsRoutes);
-app.use("/api", sportsRoutes);
-app.use("/api", trainersRoutes);
-app.use("/api", inscriptionsRoutes);
-app.use("/api", schedulesRoutes);
-app.use("/api", venuesRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/contestants", contestantsRoutes);
+app.use("/api/sports", sportsRoutes);
+app.use("/api/trainers", trainersRoutes);
+app.use("/api/inscriptions", inscriptionsRoutes);
+app.use("/api/schedules", schedulesRoutes);
+app.use("/api/venues", venuesRoutes);
+app.use("/api/documentTypes", documentTypesRoutes);
+app.use("/api/neighborhoods", neighborhoodsRoutes);
+app.use("/api/genders", gendersRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor funcionando 🚀");

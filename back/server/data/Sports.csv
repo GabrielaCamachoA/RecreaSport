@@ -1,0 +1,6 @@
+id_sport,name,codename,id_trainer,id_venue,id_schedule
+1,Fútbol,FUT,1,1,1
+2,Baloncesto,BAS,2,2,2
+3,Voleibol,VOL,3,3,3
+4,Tenis de Mesa,TENM,4,4,4
+5,Natación,NAT,5,5,5

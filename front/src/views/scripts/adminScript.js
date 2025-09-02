@@ -1,6 +1,8 @@
+// src/views/scripts/adminScript.js
 import { inscripcionView } from "../admin_views/inscriptions.js";
 import { reportsView } from "../admin_views/reports.js";
 import { usersView } from "../admin_views/users.js";
+import setupInscriptionsTable from "./inscriptionsScript.js";
 
 const d = document;
 
@@ -10,24 +12,76 @@ const subViews = {
   users: usersView,
 };
 
-export default function setupAdmin() {
-  const subNav = d.getElementById("admin-sub-nav");
-  const contentArea = d.getElementById("admin-content-area");
+async function loadInscriptionCounts() {
+  try {
+    const response = await fetch(
+      "http://localhost:5000/api/inscriptions/count"
+    );
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-  function loadSubView(viewName) {
-    const viewFunction = subViews[viewName];
-    if (contentArea && viewFunction) {
-      contentArea.innerHTML = viewFunction();
+    const resData = await response.json();
+    d.getElementById("total-inscriptions").textContent =
+      resData?.data?.total ?? 0;
+    d.getElementById("approved-inscriptions").textContent =
+      resData?.data?.approved ?? 0;
+    d.getElementById("pending-inscriptions").textContent =
+      resData?.data?.pending ?? 0;
+  } catch (error) {
+    console.error("Error fetching inscription counts:", error);
+    d.getElementById("total-inscriptions").textContent = "N/A";
+    d.getElementById("approved-inscriptions").textContent = "N/A";
+    d.getElementById("pending-inscriptions").textContent = "N/A";
+  }
+}
+
+// Modifica esta función para que sea asíncrona y más robusta.
+const loadSubView = async (viewName) => {
+  const contentArea = d.getElementById("admin-content-area");
+  if (!contentArea) return;
+
+  // Obtener la función de la vista.
+  const viewFunction = subViews[viewName];
+  if (!viewFunction) return;
+
+  // Renderizar el HTML de la vista.
+  contentArea.innerHTML = viewFunction();
+
+  // Lógica para cargar los datos solo si la vista es 'inscriptions'.
+  if (viewName === "inscriptions") {
+    await loadInscriptionCounts(); // Carga los contadores.
+    try {
+      await setupInscriptionsTable(); // Llama a la función para cargar la tabla.
+    } catch (error) {
+      console.error("Failed to setup inscriptions table:", error);
+      const tableBody = d.querySelector("#inscriptionsTable tbody");
+      if (tableBody) {
+        tableBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Error al cargar las inscripciones.</td></tr>`;
+      }
     }
   }
+};
 
-  if (subNav) {
-    subNav.addEventListener("click", (e) => {
-      e.preventDefault();
+export default function setupAdmin() {
+  const subNav = d.getElementById("admin-sub-nav");
+  if (!subNav) return;
 
-      const targetLink = e.target.closest("a.sub-navbar-link");
-      if (!targetLink) return;
+  // Usa un solo listener para manejar la navegación.
+  subNav.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetLink = e.target.closest("a.sub-navbar-link");
+    if (!targetLink) return;
 
+    // Remueve 'active' de todos los enlaces y lo agrega al actual.
+    d.querySelectorAll("#admin-sub-nav .nav-link").forEach((link) =>
+      link.classList.remove("active")
+    );
+    targetLink.classList.add("active");
+
+    // Llama a la función de carga de la vista.
+    loadSubView(targetLink.dataset.view);
+  });
+
+<<<<<<< HEAD
       d.querySelectorAll("#admin-sub-nav .nav-link").forEach((link) => {
         link.classList.remove("active");
       });
@@ -56,6 +110,8 @@ export default function setupAdmin() {
   }
 
   // default load iscripitons view
+=======
+  // Carga la vista de "Inscripciones" por defecto al iniciar.
+>>>>>>> bb1f1a34245c1d0681b7cb23e75da046e1f24578
   loadSubView("inscriptions");
-  loadUsersData();
 }

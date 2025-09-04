@@ -101,8 +101,8 @@ User: Camila -
 Pass: 1011234567)
 
 3. **Contestant**(
-User: María -
-Pass: 2020345678)
+User: gaby -
+Pass: 1233)
 
 ## Application Preview 
 

@@ -12,7 +12,7 @@ export default async function setupInscriptionsTable() {
   if (!tableBody) return;
 
   try {
-    const response = await fetch("http://localhost:5000/api/inscriptions/all");
+    const response = await fetch("https://recreasport-production.up.railway.app/api/inscriptions/all");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const result = await response.json();
@@ -81,7 +81,7 @@ export default async function setupInscriptionsTable() {
 
       try {
         const updateResponse = await fetch(
-          `http://localhost:5000/api/inscriptions/${id}/status`,
+          `https://recreasport-production.up.railway.app/api/inscriptions/${id}/status`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },

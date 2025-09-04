@@ -2,7 +2,7 @@ import Trainer from "../trainer.js";
 
 export default async function TrainerScript() {
   try {
-    const request = await fetch("http://localhost:5000/api/users");
+    const request = await fetch("https://recreasport-production.up.railway.app/api/users");
     const data = await request.json();
 
     console.log(data); // Verify the structure of the object

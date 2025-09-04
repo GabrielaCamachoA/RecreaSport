@@ -25,7 +25,7 @@ export default function registerScript() {
   // Funciones para obtener los datos de catálogo de la base de datos
   async function fetchDocumentTypes() {
     try {
-      const response = await fetch("http://localhost:5000/api/documentTypes");
+      const response = await fetch("https://recreasport-production.up.railway.app/api/documentTypes");
       const result = await response.json();
       if (response.ok) {
         populateSelect("document", result.data, "id_document_type", "codename");
@@ -39,7 +39,7 @@ export default function registerScript() {
 
   async function fetchNeighborhoods() {
     try {
-      const response = await fetch("http://localhost:5000/api/neighborhoods");
+      const response = await fetch("https://recreasport-production.up.railway.app/api/neighborhoods");
       const result = await response.json();
       if (response.ok) {
         populateSelect("neighborhood", result.data, "id_neighborhood", "name");
@@ -53,7 +53,7 @@ export default function registerScript() {
 
   async function fetchGenders() {
     try {
-      const response = await fetch("http://localhost:5000/api/genders");
+      const response = await fetch("https://recreasport-production.up.railway.app/api/genders");
       const result = await response.json();
       if (response.ok) {
         populateSelect("gender", result.data, "id_gender", "name");
@@ -137,7 +137,7 @@ try {
   };
 
   const userResponse = await fetch(
-    "http://localhost:5000/api/users/register",
+    "https://recreasport-production.up.railway.app/api/users/register",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -170,7 +170,7 @@ try {
     try {
       const contestantPayload = { userId: userId };
       const contestantResponse = await fetch(
-        "http://localhost:5000/api/contestants",
+        "https://recreasport-production.up.railway.app/api/contestants",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -202,7 +202,7 @@ try {
       };
 
       const inscriptionResponse = await fetch(
-        "http://localhost:5000/api/inscriptions",
+        "https://recreasport-production.up.railway.app/api/inscriptions",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

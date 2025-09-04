@@ -15,7 +15,7 @@ const subViews = {
 async function loadInscriptionCounts() {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/inscriptions/count"
+      "https://recreasport-production.up.railway.app/api/inscriptions/count"
     );
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
@@ -85,7 +85,7 @@ export default function setupAdmin() {
   async function loadUsersData() {
     try {
       console.log("Cargando datos de usuarios...");
-      const response = await fetch("http://localhost:5000/api/users");
+      const response = await fetch("https://recreasport-production.up.railway.app/api/users");
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

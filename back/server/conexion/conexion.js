@@ -7,8 +7,10 @@ const credentials = {
   BD: process.env.BD_NAME,
   USER: process.env.BD_USER,
   PASS: process.env.BD_PASSWORD,
-  HOST: process.env.BD_HOST
+  HOST: process.env.BD_HOST,
+  PORT: process.env.BD_PORT || 3306,
 };
+
 
 export const sequelize = new Sequelize(
   credentials.BD,
@@ -16,7 +18,12 @@ export const sequelize = new Sequelize(
   credentials.PASS,
   {
     host: credentials.HOST,
+    port: credentials.PORT,
     dialect: "mysql",
+    logging: false,
+    dialectOptions: {
+      connectTimeout: 60000,
+    },
   }
 );
 

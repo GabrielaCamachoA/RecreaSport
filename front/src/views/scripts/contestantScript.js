@@ -107,7 +107,7 @@ export default function contestantScript() {
 
       // 1. Obtener el concursante por ID de usuario
       const contestantResponse = await fetch(
-        `http://localhost:5000/api/contestants/byUser/${userData.id}`
+        `https://recreasport-production.up.railway.app/api/contestants/byUser/${userData.id}`
       );
 
       const contestantError = handleApiError(
@@ -128,7 +128,7 @@ export default function contestantScript() {
 
       // 2. Obtener la inscripción por ID de concursante
       const inscriptionResponse = await fetch(
-        `http://localhost:5000/api/inscriptions/byContestant/${contestantData.data.id_contestants}`
+        `https://recreasport-production.up.railway.app/api/inscriptions/byContestant/${contestantData.data.id_contestants}`
       );
 
       const inscriptionError = handleApiError(

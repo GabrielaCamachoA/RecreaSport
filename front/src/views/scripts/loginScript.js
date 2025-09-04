@@ -15,7 +15,7 @@ export default function loginScript() {
       const rememberMe = document.getElementById("remember-me").checked;
 
       try {
-        const response = await fetch("http://localhost:5000/api/users/login", {
+        const response = await fetch("https://recreasport-production.up.railway.app/api/users/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export default function loginScript() {
         if (data.user.role === 3) {
           try {
             const contestantResponse = await fetch(
-              `http://localhost:5000/api/contestants/byUser/${data.user.id_user}`
+              `https://recreasport-production.up.railway.app/api/contestants/byUser/${data.user.id_user}`
             );
             const contestantData = await contestantResponse.json();
 

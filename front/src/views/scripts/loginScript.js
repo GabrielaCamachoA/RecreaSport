@@ -65,11 +65,11 @@ export default function loginScript() {
         // Redirección por rol
         setTimeout(() => {
           if (data.user.role === 1) {
-            window.location = "http://localhost:5173/admin";
+            window.location = "https://recreasport-production.up.railway.app/admin";
           } else if (data.user.role === 2) {
-            window.location = "http://localhost:5173/trainer";
+            window.location = "https://recreasport-production.up.railway.app/trainer";
           } else if (data.user.role === 3) {
-            window.location = "http://localhost:5173/contestant";
+            window.location = "https://recreasport-production.up.railway.app/contestant";
           } else {
             window.location.hash = "#";
           }

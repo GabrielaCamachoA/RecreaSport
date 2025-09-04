@@ -18,17 +18,17 @@ export default function Contact() {
   <!-- Info Cards -->
   <div class="contact-info ">
     <div class="info-card">
-     <img src="../public/images/phone.png" alt="phone" class="img-fluid">
+     <img src="/images/phone.png" alt="phone" class="img-fluid">
       <p>(605) 339-1000</p>
     </div>
 
     <div class="info-card">
-      <img src="../public/images/mail.png" alt="email" class="img-fluid">
+      <img src="/images/mail.png" alt="email" class="img-fluid">
       <p>deporterecreativo@barranquilla.gov.co</p>
     </div>
 
     <div class="info-card">
-      <img src="../public/images/locationInfo.png" alt="location" class="img-fluid">
+      <img src="/images/locationInfo.png" alt="location" class="img-fluid">
       <p>Carrera 54 No. 75 - 25 Barranquilla, Atlántico</p>
     </div>
   </div>

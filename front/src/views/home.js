@@ -2,16 +2,16 @@ export default function Home() {
   return `
   <section class="section-bg">
   <div class="div-bg">
-    <img src="../public/images/champion.png" alt="champion" class="img-fluid">
+    <img src="/images/champion.png" alt="champion" class="img-fluid">
   </div>
     <h2>Programa <span>RecreaSport</span></h2>
     <p class="p-bg">Descubre todas las modalidades deportivas disponibles en el programa y únete a la que más te apasione</p>
      <div class="btn">
       <a href="/login" data-link id="btnLogin"> 
-        <img src="../public/images/login.png" alt="login" class="img-fluid">
+        <img src="/images/login.png" alt="login" class="img-fluid">
         lniciar Sesion </a>
       <a href="/register" data-link id="btnRegister"> 
-      <img src="../public/images/user-register.png" alt="register" class="img-fluid">
+      <img src="/images/user-register.png" alt="register" class="img-fluid">
       lnscríbete Ahora 
       </a>
     </div>
@@ -20,42 +20,42 @@ export default function Home() {
     <h2>Disciplinas Deportivas</h2>
      <div class="cards">
       <div class="tarjet">
-       <img src="../public/images/soccer.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/soccer.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Fútbol</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/basketball.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/basketball.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Baloncesto</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/volleyball.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/volleyball.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Volleyball</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/swim.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/swim.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Natación</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/person.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/person.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Atletismo</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/biking.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/biking.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Ciclismo</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/tenis.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/tenis.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Tenis</span>
        <p>200 inscritos</p>
       </div>
       <div class="tarjet">
-       <img src="../public/images/boxeo.png" alt="logo-RecreaSport" class="img-fluid">
+       <img src="/images/boxeo.png" alt="logo-RecreaSport" class="img-fluid">
        <span>Boxeo</span>
        <p>200 inscritos</p>
       </div>
@@ -67,7 +67,7 @@ export default function Home() {
     <div class="cards-locality">
       <div class="tarjet-locality">
         <div>
-           <img src="../public/images/location.png" alt="location" class="img-fluid">
+           <img src="/images/location.png" alt="location" class="img-fluid">
         </div>
         <div class="info-locality">
           <span>Norte Centro Histórico</span>
@@ -77,7 +77,7 @@ export default function Home() {
        </div>
       <div class="tarjet-locality">
         <div>
-          <img src="../public/images/location.png" alt="location" class="img-fluid">
+          <img src="/images/location.png" alt="location" class="img-fluid">
         </div>
         <div class="info-locality">
           <span>Riomar</span>
@@ -87,7 +87,7 @@ export default function Home() {
       </div>
       <div class="tarjet-locality">
         <div>
-           <img src="../public/images/location.png" alt="location" class="img-fluid">
+           <img src="/images/location.png" alt="location" class="img-fluid">
         </div>
         <div class="info-locality">
           <span>Metropolitana</span>
@@ -97,7 +97,7 @@ export default function Home() {
       </div>
       <div class="tarjet-locality">
         <div>
-           <img src="../public/images/location.png" alt="location" class="img-fluid">
+           <img src="/images/location.png" alt="location" class="img-fluid">
         </div>
         <div class="info-locality">
           <span>Suroccidente</span>
@@ -107,7 +107,7 @@ export default function Home() {
       </div>
       <div class="tarjet-locality">
         <div>
-          <img src="../public/images/location.png" alt="location" class="img-fluid">
+          <img src="/images/location.png" alt="location" class="img-fluid">
         </div>
         <div class="info-locality">
           <span>Suroriente</span>
@@ -145,7 +145,7 @@ export default function Home() {
     <div class="cards-info">
       <div class="tarjet-vision">
         <div>
-           <img src="../public/images/cham2.png" alt="champion" class="img-fluid">
+           <img src="/images/cham2.png" alt="champion" class="img-fluid">
             <span>Misión</span>
         </div>
         <div class="info">
@@ -154,7 +154,7 @@ export default function Home() {
        </div>
       <div class="tarjet-mision">
         <div>
-          <img src="../public/images/vision.png" alt="vision" class="img-fluid">
+          <img src="/images/vision.png" alt="vision" class="img-fluid">
           <span>Visión</span>
           </div>
         <div class="info">
